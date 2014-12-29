@@ -1,0 +1,37 @@
+{
+  "name": "Site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.php",
+  "author": "Yacr.ru",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^0.1.2",
+    "event-stream": "^3.1.5",
+    "gulp": "^3.5.6",
+    "gulp-autoprefixer": "^0.0.8",
+    "gulp-cache": "^0.2.2",
+    "gulp-changed": "^1.0.0",
+    "gulp-combine-media-queries": "0.0.1",
+    "gulp-concat": "^2.2.0",
+    "gulp-cssmin": "^0.1.5",
+    "gulp-csso": "^0.2.9",
+    "gulp-if": "^1.2.1",
+    "gulp-imagemin": "^2.0.0",
+    "gulp-jshint": "^1.6.3",
+    "gulp-load-plugins": "^0.4.0",
+    "gulp-notify": "^2.1.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.4.0",
+    "gulp-size": "^0.3.1",
+    "gulp-uglify": "^0.2.1",
+    "gulp-util": "^2.2.14",
+    "gulp.spritesmith": "^0.3.0",
+    "jshint-stylish": "^0.4.0",
+    "run-sequence": "^0.3.6"
+  },
+  "dependencies": {
+    "gulp.spritesmith": "^1.4.0",
+    "psi": "^0.1.6"
+  }
+}
