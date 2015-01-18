@@ -33,7 +33,7 @@ var vendorFiles = {
     styles: '',
     scripts: [
         paths.vendor + 'jquery/dist/jquery.js',
-        paths.vendor + 'bootstrap-sass-official/assets/javascript/bootstrap/modal.js',
+        paths.vendor + 'bootstrap-sass-official/assets/javascripts/bootstrap/modal.js',
         paths.vendor + 'slick.js/slick/slick.js',
         paths.vendor + 'magnific-popup/dist/jquery.magnific-popup.js',
         paths.vendor + 'jquery-form-validator/form-validator/jquery.form-validator.js'

@@ -1,0 +1,16 @@
+*~
+~*
+*.orig
+*.bak
+*.swp
+# Файлы с машинным кодом
+*.pyc
+*.[ao]
+*.obj
+*.so
+*.la
+*.lib
+*.dll
+# Файлы IDE
+.idea/
+.DS_Store
