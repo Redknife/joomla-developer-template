@@ -71,7 +71,8 @@ var $ = require('gulp-load-plugins')({
 
 var gutil = require('gulp-util'),
     del = require('del'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    livereload = require('gulp-livereload');
 
 var isProduction = true,
     sassStyle = 'compressed',
@@ -113,6 +114,7 @@ gulp.task('styles', function() {
         .pipe(isProduction ? $.if('*.css', $.csso()) : gutil.noop())
         .pipe(isProduction ? $.rename('styles.min.css') : gutil.noop())
         .pipe(gulp.dest(paths.styles.dest))
+        .pipe(livereload())
         .pipe($.size({
             title: 'styles'
         }))
@@ -137,6 +139,7 @@ gulp.task('scripts', function() {
             title: 'scripts'
         }))
         .pipe(gulp.dest(paths.scripts.dest))
+        .pipe(livereload())
         .pipe(nativeNotify ? $.notify({
             onLast: true,
             message: function(file) {
@@ -153,6 +156,7 @@ gulp.task('images', function() {
             interlaced: true
         })))
         .pipe(gulp.dest(paths.images.dest))
+        .pipe(livereload())
         .pipe($.size({
             title: 'images'
         }))
@@ -179,6 +183,8 @@ gulp.task('sprite', function() {
 });
 
 gulp.task('watch', ['styles', 'scripts'], function() {
+    livereload.listen();
+
     gulp.watch(appFiles.styles, ['styles']).on('change', function(evt) {
         changeEvent(evt);
     });
