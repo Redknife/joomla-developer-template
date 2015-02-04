@@ -9,6 +9,14 @@ $doc->addStyleSheet('templates/blank_j3/public/css/styles.css');
 $doc->addScript('templates/blank_j3/public/js/app.js');
 
 $blankj3_helper = new blank_j3($this);
+
+$app = JFactory::getApplication();
+$menu = $app->getMenu()->getActive();
+$pageclass = '';
+
+if (is_object($menu)){
+    $pageclass = $menu->params->get('pageclass_sfx');
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +46,7 @@ $blankj3_helper = new blank_j3($this);
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     </head>
-    <body class="<?php echo $blankj3_helper->isFrontpage(); ?>">
+    <body class="<?php echo $blankj3_helper->isFrontpage()." ".$pageclass; ?>">
 
         <?php if($blankj3_helper->show_top || $blankj3_helper->show_top_left || $blankj3_helper->show_center || $blankj3_helper->show_right): ?>
         <header id="site-header">
