@@ -14,7 +14,7 @@ var paths = {
         vendor: basePaths.dest + 'js/vendor/'
     },
     styles: {
-        src: basePaths.src + 'sass/',
+        src: basePaths.src + 'scss/',
         dest: basePaths.dest + 'css/'
     },
     sprite: {
@@ -101,7 +101,7 @@ gulp.task('styles', function() {
                 style: sassStyle,
                 precision: 10,
                 lineNumbers: sassLineNumber,
-                loadPath: 'public/vendor/'
+                loadPath: 'src/vendor/'
             })
             .on('error', console.error.bind(console))
         )
@@ -175,11 +175,11 @@ gulp.task('sprite', function() {
             functions: true
         },
         cssVarMap: function(sprite) {
-            sprite.name = 'sprite-' + sprite.name;
+            sprite.name = 'sp-' + sprite.name;
         }
     }));
     spriteData.img.pipe(gulp.dest(paths.images.dest));
-    spriteData.css.pipe(gulp.dest(paths.styles.src));
+    spriteData.css.pipe(gulp.dest(paths.styles.src+"utils"));
 });
 
 gulp.task('watch', ['styles', 'scripts'], function() {
