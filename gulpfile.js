@@ -70,7 +70,6 @@ var $ = require('gulp-load-plugins')({
 });
 
 var gutil = require('gulp-util'),
-    del = require('del'),
     runSequence = require('run-sequence'),
     livereload = require('gulp-livereload');
 
@@ -82,7 +81,7 @@ var isProduction = true,
 if (gutil.env.dev === true) {
     sassStyle = 'expanded';
     isProduction = false;
-    sassLineNumber = 'true';
+    sassLineNumber = true;
 }
 
 var changeEvent = function(evt) {
@@ -93,18 +92,14 @@ var changeEvent = function(evt) {
 
 // Compile and Automatically Prefix Stylesheets
 gulp.task('styles', function() {
-    return gulp.src(paths.styles.src + '*.scss')
-        .pipe($.changed('styles', {
-            extension: '.scss'
-        }))
-        .pipe($.rubySass({
-                style: sassStyle,
-                precision: 10,
-                lineNumbers: sassLineNumber,
-                loadPath: 'src/vendor/'
-            })
-            .on('error', console.error.bind(console))
-        )
+    return $.rubySass(paths.styles.src, {
+            style: sassStyle,
+            precision: 10,
+            lineNumbers: sassLineNumber,
+            loadPath: 'src/vendor/'
+        })
+
+        .on('error', console.error.bind(console))
         .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
         .pipe(gulp.dest('.tmp'))
         .pipe($.concat('styles.css'))
