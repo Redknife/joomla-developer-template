@@ -20,7 +20,7 @@ var paths = {
     sprite: {
         src: basePaths.src + 'sprite/*.png'
     },
-    vendor: basePaths.dest + 'vendor/'
+    vendor: basePaths.src + 'vendor/'
 };
 
 var appFiles = {
