@@ -1,14 +1,32 @@
 @charset "UTF-8";
 
 %clearfix {
-    *zoom: 1;
-
-    &:before, &:after {
-        content: ' ';
+    &:before,
+    &:after {
         display: table;
+        content: ' ';
     }
 
     &:after {
         clear: both;
     }
+}
+
+%unstyled {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    background: none;
+    box-shadow: none;
+}
+
+%inlineblock {
+    display: inline-block;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
 }

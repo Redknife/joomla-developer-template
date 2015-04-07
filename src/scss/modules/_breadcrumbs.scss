@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.breadcrumb {
+    margin: 45px 0 35px 0;
+    @extend .unstyled;
+    @extend %clearfix;
+
+    > li {
+        float: left;
+
+        > a {
+            font-size: 12px;
+            color: #666;
+
+            &:hover {
+                color: #666;
+            }
+        }
+
+        > span {
+            font-size: 12px;
+            color: #212121;
+        }
+
+        > .divider {
+            padding: 0 7px;
+            color: #cacaca;
+        }
+    }
+}

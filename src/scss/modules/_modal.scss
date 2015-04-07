@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.modal-content {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.modal-header {
+    min-height: 0;
+    padding: 0;
+    border: none;
+}
+
+.modal-body {
+    .form-header {
+        margin: 0 0 10px 0;
+
+        > h2, > h3, > h4 {
+            margin: 0;
+        }
+    }
+
+    .controlls {
+        margin-bottom: 10px;
+    }
+
+    input[type='text'],
+    textarea {
+        width: 100%;
+
+        &:focus {
+            outline: transparent;
+        }
+    }
+
+    textarea {
+        resize: none;
+    }
+}

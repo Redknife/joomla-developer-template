@@ -1,15 +1,23 @@
 @charset "UTF-8";
 
-@import "base/_normalize";
-@import "base/_vars";
-@import "base/_base";
-@import "base/_typo";
+@import "bootstrap/_responsiveoff";
+@import "bootstrap/_bootstrap";
 
 @import "utils/_mixins";
 @import "utils/_help";
 @import "utils/_sprite";
 
-@import "bootstrap/_bootstrap";
+@import "base/_normalize";
+@import "base/_vars";
+@import "base/_base";
+@import "base/_typo";
+
+@import "layout/_header";
+@import "layout/_footer";
+@import "layout/_sidebar";
+
+@import "modules/_breadcrumbs";
+@import "modules/_modal";
 
 // @import "slick.js/slick/slick";
 // @import "magnific-popup/src/css/main";

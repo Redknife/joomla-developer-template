@@ -10,8 +10,7 @@ var paths = {
     },
     scripts: {
         src: basePaths.src + 'js/',
-        dest: basePaths.dest + 'js/',
-        vendor: basePaths.dest + 'js/vendor/'
+        dest: basePaths.dest + 'js/'
     },
     styles: {
         src: basePaths.src + 'scss/',
@@ -25,7 +24,11 @@ var paths = {
 
 var appFiles = {
     styles: paths.styles.src + '**/*.scss',
-    scripts: paths.scripts.src + '*.js',
+    scripts: [
+        paths.scripts.src + 'modal.js',
+        paths.scripts.src + 'tab.js',
+        paths.scripts.src + 'app.js'
+    ]
     images: paths.images.src + '**/*'
 };
 
@@ -33,7 +36,6 @@ var vendorFiles = {
     styles: '',
     scripts: [
         paths.vendor + 'jquery/dist/jquery.js',
-        paths.vendor + 'bootstrap-sass-official/assets/javascripts/bootstrap/modal.js',
         paths.vendor + 'slick.js/slick/slick.js',
         paths.vendor + 'magnific-popup/dist/jquery.magnific-popup.js',
         paths.vendor + 'jquery-form-validator/form-validator/jquery.form-validator.js'
@@ -59,7 +61,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 // For pagespeed tests
 var psi = require('psi');
-var site = 'http://www.saity74.ru',
+var site = 'http://www.sitename.net',
     key = '';
 
 var gulp = require('gulp');
@@ -75,14 +77,15 @@ var gutil = require('gulp-util'),
 
 var isProduction = true,
     sassStyle = 'compressed',
-    sassLineNumber = false,
-    nativeNotify = false;
+    sassLineNumber = false;
 
 if (gutil.env.dev === true) {
     sassStyle = 'expanded';
     isProduction = false;
     sassLineNumber = true;
 }
+
+var nativeNotify = false;
 
 var changeEvent = function(evt) {
     gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePaths.src + ')/'), '')), 'was', gutil.colors.magenta(evt.type));

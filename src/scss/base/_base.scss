@@ -1,1 +1,43 @@
 @charset "UTF-8";
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: tahoma, arial, verdana, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    min-height: 100%;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:focus {
+        text-decoration: underline;
+        outline: none;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+p {
+    line-height: normal;
+    margin: 0 0 10px 0;
+}
+
+.tab-pane {
+    position: absolute;
+    left: -99999px;
+    opacity: 0;
+
+    &.active {
+        position: static;
+        display: block;
+        opacity: 1;
+    }
+}

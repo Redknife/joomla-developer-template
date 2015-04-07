@@ -16,6 +16,7 @@ $pageclass = '';
 
 if (is_object($menu)){
     $pageclass = $menu->params->get('pageclass_sfx');
+    $pageclass .= ' page__'.$menu->query['option'].'-'.$menu->query['view'];
 }
 ?>
 
@@ -25,15 +26,11 @@ if (is_object($menu)){
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <?php if ($params->get('enable_full_bootstrap', 0)): ?>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <?php endif; ?>
-
-        <?php if ($params->get('googleFontName', '')): ?>
-        <link href='//fonts.googleapis.com/css?family=<?php echo $params->get('googleFontName'); ?>' rel='stylesheet' type='text/css' />
-        <?php endif; ?>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
 
         <jdoc:include type="headj3" />
+
+        <link rel="icon" href="<?php echo JURI::root(); ?>favicon.ico" type="image/x-icon">
 
         <!--[if lt IE 7]>
             <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
