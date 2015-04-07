@@ -45,81 +45,19 @@ class blank_j3{
         $this->show_bottom = $template->countModules('bottom');
         $this->show_bottom_socials = $template->countModules('bottom-socials');
         $this->show_footer = $template->countModules('footer');
-
-        // size blocks
-        $this->class_top_left = $this->_params->get('top_left_class', 'col-xs-12 col-sm-4 col-md-4 col-lg-4');
-        $this->class_top_center = $this->_params->get('top_center_class', 'col-xs-12 col-sm-4 col-md-4 col-lg-4');
-        $this->class_top_right = $this->_params->get('top_right_class', 'col-xs-12 col-sm-4 col-md-4 col-lg-4');
-
-        $this->class_left = $this->_params->get('left_class', 'col-xs-12 col-sm-3 col-md-3 col-lg-3');
-        $this->class_right = $this->_params->get('right_class', 'hidden-xs col-sm-2 col-md-2 col-lg-2');
-
-        $this->class_bottom_left = $this->_params->get('bottom_left_class', 'col-xs-12 col-sm-4 col-md-4 col-lg-4');
-        $this->class_bottom_center = $this->_params->get('bottom_center_class', 'col-xs-12 col-sm-4 col-md-4 col-lg-4');
-        $this->class_bottom_right = $this->_params->get('bottom_right_class', 'col-xs-12 col-sm-4 col-md-4 col-lg-4');
-
-        //classes for blocks
-        $this->class_user1 = $this->_params->get('user1_class', '');
-        $this->class_user2 = $this->_params->get('user2_class', '');
-        $this->class_user3 = $this->_params->get('user3_class', '');
     }
 
     public function getContentClass()
     {
+        $content_class = '';
         if($this->show_left)
         {
-            $class_left = $this->_params->get('left_class', 'col-xs-12 col-sm-3 col-md-3 col-lg-3');
+            $content_class .= ' with-lsidebar'
         }
-        else
-        {
-            $class_left = 'col-xs-0 col-sm-0 col-md-0 col-lg-0';
-        }
-
         if($this->show_right)
         {
-            $class_right = $this->_params->get('right_class', 'hidden-xs col-sm-2 col-md-2 col-lg-2');
+            $content_class .= ' with-rsidebar'
         }
-        else
-        {
-            $class_right = 'col-xs-0 col-sm-0 col-md-0 col-lg-0';
-        }
-
-        $max_grid_size = 12;
-
-        $left_classes = explode(' ', $class_left);
-        $right_classes = explode(' ', $class_right);
-        $left_class_assoc = array();
-        $right_class_assoc = array();
-        $content_classes = array();
-
-        foreach ($left_classes as $str)
-        {
-            $t_arr = preg_split('/-+(?=\\d{1,2})/', $str, 2);
-            if(count($t_arr) == 2)
-            {
-                list($grid_class, $size) = $t_arr;
-                $left_class_assoc[$grid_class] = (int) $size;
-            }
-        }
-
-        foreach ($right_classes as $str)
-        {
-            $t_arr = preg_split('/-+(?=\\d{1,2})/', $str, 2);
-            if(count($t_arr) == 2)
-            {
-                list($grid_class, $size) = $t_arr;
-                $right_class_assoc[$grid_class] = (int) $size;
-            }
-        }
-
-        $left_class_assoc = array_intersect_key($left_class_assoc, $right_class_assoc);
-        foreach ($left_class_assoc as $grid_class => $size) {
-            $content_size = abs($max_grid_size - $left_class_assoc[$grid_class] - $right_class_assoc[$grid_class]);
-            if($content_size>0) $content_classes[] = $grid_class.'-'.$content_size;
-            else $content_classes[] = $grid_class.'-'.$max_grid_size;
-        }
-
-        $content_class = implode(' ',$content_classes);
         return $content_class;
     }
 

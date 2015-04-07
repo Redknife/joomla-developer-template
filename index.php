@@ -45,7 +45,7 @@ if (is_object($menu)){
     </head>
     <body class="<?php echo $blankj3_helper->isFrontpage()." ".$pageclass; ?>">
 
-        <?php if($blankj3_helper->show_top || $blankj3_helper->show_top_left || $blankj3_helper->show_center || $blankj3_helper->show_right): ?>
+        <?php if($blankj3_helper->show_top || $blankj3_helper->show_top_left || $blankj3_helper->show_top_center || $blankj3_helper->show_right): ?>
         <header id="site-header">
             <?php if($blankj3_helper->show_top): ?>
             <section id="top">
@@ -62,7 +62,7 @@ if (is_object($menu)){
                 <div class="container">
                     <div class="row">
                         <?php if($blankj3_helper->show_top_left): ?>
-                        <div class="<?php echo $blankj3_helper->class_top_left; ?>">
+                        <div class="col-md-4">
                             <div class="top-left-modules-wrapper">
                                 <jdoc:include type="modules" name="top-left" />
                             </div>
@@ -70,7 +70,7 @@ if (is_object($menu)){
                         <?php endif; ?>
 
                         <?php if($blankj3_helper->show_top_center): ?>
-                        <div class="<?php echo $blankj3_helper->class_top_center; ?>">
+                        <div class="col-md-4">
                             <div class="top-center-modules-wrapper">
                                 <jdoc:include type="modules" name="top-center" />
                             </div>
@@ -78,7 +78,7 @@ if (is_object($menu)){
                         <?php endif; ?>
 
                         <?php if($blankj3_helper->show_top_right): ?>
-                        <div class="<?php echo $blankj3_helper->class_top_right; ?>">
+                        <div class="col-md-4">
                             <div class="top-right-modules-wrapper">
                                 <jdoc:include type="modules" name="top-right" />
                             </div>
@@ -92,7 +92,7 @@ if (is_object($menu)){
         <?php endif; ?>
 
         <?php if($blankj3_helper->show_user1): ?>
-        <section id="user1" class="<?php echo $blankj3_helper->class_user1; ?>">
+        <section id="user1">
             <div class="container">
                 <div class="user1-modules-wrapper">
                     <jdoc:include type="modules" name="user1" style="none"/>
@@ -102,7 +102,7 @@ if (is_object($menu)){
         <?php endif; ?>
 
         <?php if($blankj3_helper->show_user2): ?>
-        <section id="user2" class="<?php echo $blankj3_helper->class_user2; ?>">
+        <section id="user2">
             <div class="container">
                 <div class="user2-modules-wrapper">
                     <jdoc:include type="modules" name="user2" />
@@ -112,7 +112,7 @@ if (is_object($menu)){
         <?php endif; ?>
 
         <?php if($blankj3_helper->show_user3): ?>
-        <section id="user3" class="<?php echo $blankj3_helper->class_user3; ?>">
+        <section id="user3">
             <div class="container">
                 <div class="user3-modules-wrapper">
                     <jdoc:include type="modules" name="user3" />
@@ -121,49 +121,42 @@ if (is_object($menu)){
         </section>
         <?php endif; ?>
 
-        <main>
+        <main id="contentWrapper">
             <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <section id="messages">
-                            <jdoc:include type="message" />
-                        </section>
-                    </div>
 
-                    <?php if($blankj3_helper->show_left): ?>
-                    <div class="<?php echo $blankj3_helper->class_left; ?>">
-                        <section id="left">
-                            <jdoc:include type="modules" name="left" />
-                        </section>
-                    </div>
+                <section id="messages">
+                    <jdoc:include type="message" />
+                </section>
+
+                <?php if($blankj3_helper->show_left): ?>
+                <section id="left">
+                    <jdoc:include type="modules" name="left" />
+                </section>
+                <?php endif; ?>
+
+                <div class="<?php echo $blankj3_helper->getContentClass(); ?>">
+                    <?php if($blankj3_helper->show_content_header): ?>
+                    <section id="content-header">
+                        <jdoc:include type="modules" name="content-header" />
+                    </section>
                     <?php endif; ?>
 
-                    <div class="<?php echo $blankj3_helper->getContentClass(); ?>">
-                        <?php if($blankj3_helper->show_content_header): ?>
-                        <section id="content-header">
-                            <jdoc:include type="modules" name="content-header" />
-                        </section>
-                        <?php endif; ?>
+                    <article id="content">
+                        <jdoc:include type="component" />
+                    </article>
 
-                        <article id="content">
-                            <jdoc:include type="component" />
-                        </article>
-
-                        <?php if($blankj3_helper->show_content_footer): ?>
-                        <section id="content-footer">
-                            <jdoc:include type="modules" name="content-footer" />
-                        </section>
-                        <?php endif; ?>
-                    </div>
-
-                    <?php if($blankj3_helper->show_right): ?>
-                    <div class="<?php echo $blankj3_helper->class_right; ?>">
-                        <section id="right">
-                            <jdoc:include type="modules" name="right" />
-                        </section>
-                    </div>
+                    <?php if($blankj3_helper->show_content_footer): ?>
+                    <section id="content-footer">
+                        <jdoc:include type="modules" name="content-footer" />
+                    </section>
                     <?php endif; ?>
                 </div>
+
+                <?php if($blankj3_helper->show_right): ?>
+                <section id="right">
+                    <jdoc:include type="modules" name="right" />
+                </section>
+                <?php endif; ?>
             </div>
         </main>
 

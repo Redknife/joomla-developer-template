@@ -25,10 +25,8 @@ var paths = {
 var appFiles = {
     styles: paths.styles.src + '**/*.scss',
     scripts: [
-        paths.scripts.src + 'modal.js',
-        paths.scripts.src + 'tab.js',
         paths.scripts.src + 'app.js'
-    ]
+    ],
     images: paths.images.src + '**/*'
 };
 
@@ -38,7 +36,9 @@ var vendorFiles = {
         paths.vendor + 'jquery/dist/jquery.js',
         paths.vendor + 'slick.js/slick/slick.js',
         paths.vendor + 'magnific-popup/dist/jquery.magnific-popup.js',
-        paths.vendor + 'jquery-form-validator/form-validator/jquery.form-validator.js'
+        paths.vendor + 'jquery-form-validator/form-validator/jquery.form-validator.js',
+        paths.scripts.src + 'modal.js',
+        paths.scripts.src + 'tab.js'
     ]
 };
 

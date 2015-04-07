@@ -2,7 +2,7 @@
 
 .breadcrumb {
     margin: 45px 0 35px 0;
-    @extend .unstyled;
+    @extend %unstyled;
     @extend %clearfix;
 
     > li {
