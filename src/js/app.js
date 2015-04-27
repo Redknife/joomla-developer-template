@@ -1,5 +1,4 @@
-jQuery(function() {
-	(function($){
+jQuery(function($){
 
     // form validation init..
     var myLanguage = {
@@ -154,5 +153,4 @@ jQuery(function() {
     });
     // ..slider init
 
-	})(jQuery);
 });
