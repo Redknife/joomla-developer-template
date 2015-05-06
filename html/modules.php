@@ -46,7 +46,7 @@
 
         echo $html;
     }
-    
+
     function modChrome_default($module, &$params, &$attribs)
     {
         $moduleTag     = $params->get('module_tag', 'div');
@@ -68,7 +68,7 @@
             echo '</' . $moduleTag . '>';
         }
     }
-    
+
     function modChrome_menu($module, &$params, &$attribs)
     {
         $moduleTag     = $params->get('module_tag', 'div');
@@ -77,9 +77,7 @@
         $headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
         $headerClass   = htmlspecialchars($params->get('header_class', 'page-header'));
         $menuID        = htmlspecialchars($params->get('tag_id', 'navbar-collapse'));
-        
-        
-        
+
         if ($module->content)
         {
             echo '<' . $moduleTag . ' class="' . htmlspecialchars($params->get('moduleclass_sfx')) . $moduleClass . '">';
@@ -97,10 +95,9 @@
                 <span class="icon-bar"></span>
                 </button>
                 </div>';
-    
+
             echo $module->content;
             echo '</' . $moduleTag . '>';
         }
     }
-}
 ?>
