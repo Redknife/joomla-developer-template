@@ -52,11 +52,11 @@ class blank_j3{
         $content_class = '';
         if($this->show_left)
         {
-            $content_class .= ' with-lsidebar'
+            $content_class .= ' with-lsidebar';
         }
         if($this->show_right)
         {
-            $content_class .= ' with-rsidebar'
+            $content_class .= ' with-rsidebar';
         }
         return $content_class;
     }
