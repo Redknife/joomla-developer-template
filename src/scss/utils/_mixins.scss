@@ -5,7 +5,7 @@
     @return $value / ($value * 0 + 1);
 }
 
-// Horizontally and vertically centers block element
+/// Horizontally and vertically centers block element
 @mixin center-abs {
     position: absolute;
     top: 50%;
@@ -13,7 +13,7 @@
     transition: translate(-50%, -50%);
 }
 
-// Retina image media query helper
+/// Retina image media query helper
 @mixin image-2x($image, $width, $height) {
     @media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124dpi), (min-resolution: 1.3dppx) {
         /* on retina, use image that's scaled by 2 */
@@ -22,7 +22,7 @@
     }
 }
 
-// Convert pixels to ems
+/// Convert pixels to ems
 @function em($pxval, $base: $em-base) {
     @if not unitless($pxval) {
         $pxval: strip-units($pxval);
@@ -34,7 +34,7 @@
     @return $pxval / $base * 1em;
 }
 
-// Convert pixels to rems
+/// Convert pixels to rems
 @function rem($pxval) {
     @if not unitless($pxval) {
         $pxval: strip-units($pxval);
@@ -65,4 +65,50 @@
         background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
         background: radial-gradient(ellipse at center, $start-color, $end-color);
     }
+}
+
+
+/// Usage:
+/// Use vars from $color-stack.
+/// a {
+///   color: color(base);
+///   background: color(base, hover);
+///   border-color: color(orange, hover, 0.4);
+/// }
+
+@function color($group, $shade:normal, $transparency:1){
+  @each $color in $color-stack{
+    $c-group: map-get($color, group);
+    $c-shade: map-get($color, id);
+    @if($group == map-get($color, group) and $shade == map-get($color, id)){
+      @return rgba(map-get($color, color), $transparency);
+    }
+  }
+}
+
+/// Usage:
+/// Use vars from $media-stack or custom.
+/// h1{
+///   color: #333;
+///   @include media(tablet){
+///     font-size: 1rem;
+///   };
+///   @include media(small, inbetween){
+///     font-size: 1.2rem;
+///   };
+///   @include media(small){
+///     color: #000;
+///   };
+///   @include media(custom, screen, " (max-device-width: 360px)"){
+///     color: blue;
+///   };
+/// }
+
+@mixin media($group, $id: general, $customRule: ""){
+  @each $media in $media-stack{
+    @if($group == map-get($media, group) and $id == map-get($media, id)){
+      $rule: map-get($media, rule);
+      @media #{$rule} #{$customRule} {@content}
+    }
+  }
 }
