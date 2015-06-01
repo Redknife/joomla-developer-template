@@ -8,7 +8,6 @@
   "devDependencies": {
     "gulp": "*",
     "gulp-autoprefixer": "*",
-    "gulp-cache": "*",
     "gulp-changed": "*",
     "gulp-combine-media-queries": "*",
     "gulp-concat": "*",

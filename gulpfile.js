@@ -149,10 +149,10 @@ gulp.task('scripts', function() {
 // Optimize Images
 gulp.task('images', function() {
     return gulp.src(appFiles.images)
-        .pipe($.cache($.imagemin({
+        .pipe($.imagemin({
             progressive: true,
             interlaced: true
-        })))
+        }))
         .pipe(gulp.dest(paths.images.dest))
         .pipe(livereload())
         .pipe($.size({
