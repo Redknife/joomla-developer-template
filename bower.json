@@ -6,7 +6,7 @@
     "**/*.txt"
   ],
   "dependencies": {
-    "jquery": "~1.11.1",
+    "jquery": "~2.1.4",
     "jquery-form-validator": "",
     "slick.js": "",
     "photoswipe": "",

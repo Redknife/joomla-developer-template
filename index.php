@@ -5,8 +5,8 @@ $params = $this->params;
 
 $doc = JFactory::getDocument();
 
-$doc->addStyleSheet('templates/blank_j3/public/css/styles.css');
-$doc->addScript('templates/blank_j3/public/js/app.js');
+$doc->addStyleSheet('templates/blank_j3/public/styles.css');
+$doc->addScript('templates/blank_j3/public/app.js');
 
 $blankj3_helper = new blank_j3($this);
 

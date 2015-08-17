@@ -28,7 +28,7 @@ $user = JFactory::getUser();
 		<title><?php echo $this->title; ?></title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="language" content="<?php echo $this->language; ?>" />
-		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/public/css/styles.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/public/styles.css" type="text/css" />
 	</head>
 	<body>
 		<div class="container">

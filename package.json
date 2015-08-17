@@ -1,33 +1,58 @@
 {
-  "name": "Site",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.php",
+  "name": "rs-gulpfile",
+  "version": "1.2.0",
+  "description": "gulpfile with scss, coffescript, etc",
   "author": "Sergey Rogachev",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Redknife/gulpfile.git"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "coffeeify"
+    ]
+  },
+  "browser": {},
+  "browserify-shim": {},
   "devDependencies": {
-    "gulp": "*",
-    "gulp-autoprefixer": "*",
-    "gulp-changed": "*",
-    "gulp-combine-media-queries": "*",
-    "gulp-concat": "*",
-    "gulp-csso": "*",
-    "gulp-if": "*",
-    "gulp-imagemin": "*",
-    "gulp-jshint": "*",
-    "gulp-load-plugins": "*",
-    "gulp-notify": "*",
-    "gulp-rename": "*",
-    "gulp-ruby-sass": "*",
-    "gulp-size": "*",
-    "gulp-uglify": "*",
-    "gulp-util": "*",
-    "gulp.spritesmith": "*",
-    "jshint-stylish": "*",
-    "run-sequence": "*",
-    "gulp-livereload": "*"
+    "gulp": "",
+    "gulp-load-plugins": "",
+    "gulp-size": "",
+    "gulp-util": "",
+    "gulp-livereload": "",
+    "gulp-if": "",
+    "gulp-rename": "",
+    "gulp-changed": "",
+    "gulp-notify": "",
+    "gulp-uglify": "",
+    "pretty-hrtime": "",
+    "del": "",
+    "require-dir": "",
+    "run-sequence": "",
+    "merge-stream": "",
+    "gulp-ruby-sass": "",
+    "gulp-sourcemaps": "",
+    "gulp-autoprefixer": "",
+    "gulp-combine-media-queries": "",
+    "gulp-csso": "",
+    "gulp-imagemin": "",
+    "gulp.spritesmith": "",
+    "vinyl-source-stream": "~1.0.0",
+    "vinyl-buffer": "",
+    "watchify": "^2.4.0",
+    "browserify": "^9.0.3",
+    "browserify-shim": "^3.8.2",
+    "coffeeify": "~1.0.0",
+    "lodash": "^3.3.1",
+    "gulp-coffee": "",
+    "gulp-concat": "",
+    "gulp-order": "",
+    "event-stream": ""
   },
   "dependencies": {
-    "psi": "*"
+    "jquery": "~2.1",
+    "streamqueue": "^1.1.0"
   }
 }

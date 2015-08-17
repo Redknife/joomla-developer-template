@@ -1,0 +1,47 @@
+@charset 'UTF-8';
+
+@import 'susy/susy';
+
+// Static grid
+$susy: (
+  flow: ltr,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+  container: auto,
+  container-position: center,
+  columns: 12,
+  gutters: .433,
+  global-box-sizing: border-box,
+  last-flow: to,
+  debug: (
+    image: hide,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  ),
+  use-custom: (
+    background-image: true,
+    background-options: false,
+    box-sizing: true,
+    clearfix: false,
+    rem: true,
+  )
+);
+
+body {
+  min-width: 970px;
+}
+
+.container {
+  @include container($susy);
+  width: 940px;
+
+  @include media(md) {
+    width: 940px;
+  }
+
+  @include media(lg) {
+    width: 1140px;
+  }
+}
