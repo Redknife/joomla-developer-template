@@ -26,6 +26,7 @@
     <folder>language</folder>
     <folder>public</folder>
     <folder>src</folder>
+    <folder>gulp</folder>
   </files>
   <positions>
     <position>top</position>
@@ -79,12 +80,12 @@
      type="textarea"
      class="span4"
      rows="5"
-     default="/media/system/js/caption.js\r\n\
-              /media/jui/js/bootstrap.min.js\r\n\
-              /media/jui/js/jquery.min.js\r\n\
-              /media/jui/js/jquery-noconflict.js\r\n
-              /media/jui/js/jquery-migrate.min.js\r\n
-              /media/jui/js/chosen.jquery.min.js"
+     default="/media/system/js/caption.js &#13;&#10;
+/media/jui/js/bootstrap.min.js &#13;&#10;
+/media/jui/js/jquery.min.js &#13;&#10;
+/media/jui/js/jquery-noconflict.js &#13;&#10;
+/media/jui/js/jquery-migrate.min.js &#13;&#10;
+/media/jui/js/chosen.jquery.min.js"
      label="TPL_BLANK_J3_DISABLED_SCRIPTS_LIST_LABEL"
      description="TPL_BLANK_J3_DISABLED_SCRIPTS_LIST_DESC"
      />
