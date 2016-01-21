@@ -7,7 +7,14 @@ $color-stack:
     (group: base, id: hover, color: #efefef);
 
 $media-stack:
-  (group: md, id: general, rule: "only screen and (min-width: 998px)"),
   (group: lg, id: general, rule: "only screen and (min-width: 1200px)"),
+  (group: md, id: general, rule: "only screen and (min-width: 992px)"),
+  (group: sm, id: general, rule: "only screen and (min-width: 768px)"),
+  (group: xs, id: general, rule: "only screen and (min-width: 480px)"),
+
+  (group: maxmd, id: general, rule: "only screen and (max-width: 1199px)"),
+  (group: maxsm, id: general, rule: "only screen and (max-width: 991px)"),
+  (group: maxxs, id: general, rule: "only screen and (max-width: 767px)"),
+
   (group: print, id: general, rule: "only print"),
   (group: custom, id: screen, rule: "only screen and");
