@@ -4,11 +4,13 @@ var imagemin = require('gulp-imagemin');
 var config = require('../config').sprite;
 var livereload = require('gulp-livereload');
 var merge = require('merge-stream');
+var buffer = require('vinyl-buffer');
 
 gulp.task('sprite', function() {
   var spriteData = gulp.src(config.src)
       .pipe(spritesmith(config.settings));
   var imgStream = spriteData.img
+    .pipe(buffer())
     .pipe(imagemin())
     .pipe(gulp.dest(config.imgDest));
 
