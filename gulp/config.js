@@ -7,13 +7,13 @@ basePaths = {
 module.exports = {
 
   sass: {
-    src: basePaths.src + 'scss/',
+    src: basePaths.src + 'scss/styles.scss',
     dest: basePaths.dest,
     resultFile: 'styles.css',
     resultMinFile: 'styles.min.css',
+    watch: basePaths.src + 'scss/**/*',
 
     settings: {
-      style: 'compressed',
       sourcemap: true,
       loadPath: basePaths.bower
     },
@@ -34,13 +34,15 @@ module.exports = {
 
   images: {
     src: basePaths.src + 'img/**',
-    dest: basePaths.dest + 'img/'
+    dest: basePaths.dest + 'img/',
+    watch: basePaths.src + 'img/**/*',
   },
 
   sprite: {
     src: basePaths.src + 'sprite/**/*.png',
     cssDest: basePaths.src + 'scss/utils',
     imgDest: basePaths.dest + 'img/',
+    watch: basePaths.src + 'sprite/**/*.png',
 
     settings: {
       imgName: 'sprite.png',
@@ -57,33 +59,18 @@ module.exports = {
     }
   },
 
-  javascript: {
-    dest: basePaths.dest,
-    resultFile: 'app.js',
-    resultMinFile: 'app.min.js'
-  },
-
   coffee: {
     src: [basePaths.src + 'coffee/form.coffee',
           basePaths.src + 'coffee/app.coffee'],
     dest: basePaths.dest,
     resultFile: 'app.js',
     resultMinFile: 'app.min.js',
+    watch: basePaths.src + 'coffee/**/*',
     vendor: [basePaths.bower + 'jquery/dist/jquery.min.js',
-             basePaths.bower + 'jquery-form-validator/jquery.form-validator.min.js',
-             basePaths.bower + 'slick.js/slick/slick.min.js']
-  },
-
-  browserify: {
-    bundleConfigs: [{
-      entries: './src/coffee/app.coffee',
-      dest: './public/',
-      outputName: 'app.js',
-      extensions: ['.coffee'],
-      debug: true,
-      // defining transforms here will avoid crashing your stream
-      // transform: ['coffeeify']
-    }]
+             basePaths.bower + 'modal.js',
+             basePaths.bower + 'tab.js',
+             basePaths.bower + 'jquery-form-validator/form-validator/jquery.form-validator.min.js',
+             basePaths.bower + 'slick-carousel/slick/slick.min.js',
+             basePaths.bower + 'magnific-popup/dist/jquery.magnific-popup.min.js']
   }
-
 };

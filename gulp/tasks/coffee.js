@@ -1,14 +1,11 @@
 var sourcemaps = require('gulp-sourcemaps');
 var coffee = require('gulp-coffee');
 var gulp = require('gulp');
-var changed = require('gulp-changed');
 var livereload = require('gulp-livereload');
 var size = require('gulp-size');
 var config = require('../config').coffee;
 var handleErrors = require('../util/handleErrors');
 var concat = require('gulp-concat');
-var es = require("event-stream");
-var order = require("gulp-order");
 var streamqueue = require('streamqueue');
 
 gulp.task('coffee', function() {

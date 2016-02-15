@@ -6,11 +6,11 @@
     "**/*.txt"
   ],
   "dependencies": {
-    "jquery": "~2.1.4",
-    "jquery-form-validator": "",
-    "slick.js": "",
-    "photoswipe": "",
-    "magnific-popup": "",
-    "lazysizes": ""
+    "jquery": "^2.0.0",
+    "jquery-form-validator": "^2.2.81",
+    "slick-carousel": "slick.js#^1.5.9",
+    "photoswipe": "^4.1.1",
+    "magnific-popup": "^1.0.1",
+    "lazysizes": "^1.4.0"
   }
 }

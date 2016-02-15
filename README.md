@@ -5,7 +5,7 @@
 * [SCSS](http://sass-scss.ru)
 * [CSSO](https://github.com/css/csso)
 * [Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
-* [Combine media queries](https://www.npmjs.com/package/grunt-combine-media-queries)
+* [Merge media queries](https://www.npmjs.com/package/gulp-merge-media-queries)
 * [CoffeeScript](http://coffeescript.org)
 * [Spritesmith](https://www.npmjs.com/package/spritesmith)
 * [Imagemin](https://www.npmjs.com/package/gulp-imagemin)
@@ -21,6 +21,7 @@
 * Если не установлен Node.js то устанавливаем, нам нужен npm;
 * Далее глобально ставим Gulp ```npm install -g gulp```;
 * Следом ставим Bower ```npm install -g bower```;
+* Устанавливаем SASS ```sudo gem install sass``` (http://sass-lang.com/install);
 * Заходим в папку с шаблоном (/templates/blank_j3);
 * Установка зависимостей для проекта ```npm install```
 * Установка зависимостей для шаблона ```bower install```
