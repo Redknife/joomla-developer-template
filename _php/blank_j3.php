@@ -28,22 +28,15 @@ class blank_j3{
         $this->params = JArrayHelper::toObject($params, 'JRegistry');
 
         // check for position
-        $this->show_top = $template->countModules('top');
-        $this->show_top_left = $template->countModules('top-left');
-        $this->show_top_center = $template->countModules('top-center');
-        $this->show_top_right = $template->countModules('top-right');
+        $this->show_header = $template->countModules('header');
         $this->show_user1 = $template->countModules('user1');
         $this->show_user2 = $template->countModules('user2');
         $this->show_user3 = $template->countModules('user3');
-        $this->show_content_header = $template->countModules('content-header');
-        $this->show_content_footer = $template->countModules('content-footer');
+        $this->show_content_header = $template->countModules('content_header');
+        $this->show_content_footer = $template->countModules('content_footer');
         $this->show_left = $template->countModules('left');
         $this->show_right = $template->countModules('right');
-        $this->show_bottom_left = $template->countModules('bottom-left');
-        $this->show_bottom_center = $template->countModules('bottom-center');
-        $this->show_bottom_right = $template->countModules('bottom-right');
         $this->show_bottom = $template->countModules('bottom');
-        $this->show_bottom_socials = $template->countModules('bottom-socials');
         $this->show_footer = $template->countModules('footer');
     }
 
@@ -61,7 +54,20 @@ class blank_j3{
         return $content_class;
     }
 
-    public function getYandexMetrika(){
+    public function get_assets(){
+        $min_assets = (int) $this->_params->get('min_assets', 0);
+        $assets_path = JURI::base(true).'/templates/'.JFactory::getApplication()->getTemplate().'/public/';
+
+        $styles_file = $min_assets ? 'styles.min.css' : 'styles.css';
+        $styles_path = $assets_path.$styles_file;
+
+        $scripts_file = $min_assets ? 'app.min.js' : 'app.js';
+        $scripts_path = $assets_path.$scripts_file;
+
+        return ['styles' => $styles_path, 'scripts' => $scripts_path];
+    }
+
+    public function get_ym(){
         $id = $this->_params->get('yandex_metrika_id');
 
         if(isset($id)){
@@ -83,16 +89,15 @@ class blank_j3{
         else return '';
     }
 
-    public function getGoogleAnalytics(){
+    public function get_ga(){
         return $this->_params->get('googleanalytics_code');
     }
 
-    public function isFrontpage(){
+    public function is_frontpage(){
         $menu = JFactory::getApplication()->getMenu();
         $active_menu = $menu->getActive();
         $default_menu = $menu->getDefault();
-        $class = ($active_menu->id == $default_menu->id) ? 'frontpage' : 'not-frontpage';
-        return $class;
+        return $active_menu->id == $default_menu->id;
     }
 }
 

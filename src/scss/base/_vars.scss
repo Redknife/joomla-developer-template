@@ -3,18 +3,22 @@
 $em-base: 16px !default;
 
 $color-stack:
-    (group: base, id: normal, color: #fff),
-    (group: base, id: hover, color: #efefef);
+  (group: black, id: normal, color: #000),
+  (group: black, id: hover, color: #333);
 
 $media-stack:
   (group: lg, id: general, rule: "only screen and (min-width: 1200px)"),
+
   (group: md, id: general, rule: "only screen and (min-width: 992px)"),
+  (group: md, id: max, rule: "only screen and (max-width: 1199px)"),
+
   (group: sm, id: general, rule: "only screen and (min-width: 768px)"),
-  (group: xs, id: general, rule: "only screen and (min-width: 480px)"),
+  (group: sm, id: max, rule: "only screen and (max-width: 991px)"),
 
-  (group: maxmd, id: general, rule: "only screen and (max-width: 1199px)"),
-  (group: maxsm, id: general, rule: "only screen and (max-width: 991px)"),
-  (group: maxxs, id: general, rule: "only screen and (max-width: 767px)"),
+  (group: ms, id: general, rule: "only screen and (min-width: 480px)"),
+  (group: ms, id: max, rule: "only screen and (max-width: 767px)"),
 
-  (group: print, id: general, rule: "only print"),
-  (group: custom, id: screen, rule: "only screen and");
+  (group: xs, id: max, rule: "only screen and (max-width: 480px)"),
+
+  (group: retina, id: general, rule: "only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)"),
+  (group: print, id: general, rule: "only print");

@@ -5,7 +5,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
 
-gulp.task('minjs', ['coffee'], function() {
+gulp.task('minjs', ['js'], function() {
   return gulp.src(config.dest + config.resultFile)
     .pipe(uglify())
     .pipe(rename(config.resultMinFile))

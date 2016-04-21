@@ -1,7 +1,7 @@
-basePaths = {
+var basePaths = {
   src: 'src/',
   dest: 'public/',
-  bower: 'src/vendor/'
+  bower: './src/vendor/'
 };
 
 module.exports = {
@@ -20,12 +20,9 @@ module.exports = {
 
     autoprefixer: {
       browsers: [
+        'last 3 versions',
+        '> 5%',
         'ie >= 8',
-        'ie_mob >= 10',
-        'ff >= 29',
-        'chrome >= 34',
-        'safari >= 7',
-        'opera >= 23',
         'ios >= 7',
         'android >= 4.0'
       ]
@@ -35,7 +32,7 @@ module.exports = {
   images: {
     src: basePaths.src + 'img/**',
     dest: basePaths.dest + 'img/',
-    watch: basePaths.src + 'img/**/*',
+    watch: basePaths.src + 'img/**/*'
   },
 
   sprite: {
@@ -59,18 +56,33 @@ module.exports = {
     }
   },
 
-  coffee: {
-    src: [basePaths.src + 'coffee/form.coffee',
-          basePaths.src + 'coffee/app.coffee'],
+  iconfont: {
+    src: [basePaths.src + 'icons/**/*.svg'],
+    settings: {
+      fontName: 'iconfont',
+      prependUnicode: false,
+      fontHeight: 150,
+      normalize: true,
+      centerHorizontally: true,
+      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg']
+    },
+    cssSettings: {
+      fontName: 'iconfont',
+      path: 'src/scss/utils/_template-iconfont.scss',
+      targetPath: '../../src/scss/base/_icons.scss',
+      fontPath: 'iconfont/',
+      cssClass: 'i'
+    },
+    dest: basePaths.dest + 'iconfont',
+    watch: basePaths.src + 'icons/**/*.svg'
+  },
+
+  js: {
+    src: basePaths.src + 'js/index.js',
     dest: basePaths.dest,
     resultFile: 'app.js',
     resultMinFile: 'app.min.js',
-    watch: basePaths.src + 'coffee/**/*',
-    vendor: [basePaths.bower + 'jquery/dist/jquery.min.js',
-             basePaths.bower + 'modal.js',
-             basePaths.bower + 'tab.js',
-             basePaths.bower + 'jquery-form-validator/form-validator/jquery.form-validator.min.js',
-             basePaths.bower + 'slick-carousel/slick/slick.min.js',
-             basePaths.bower + 'magnific-popup/dist/jquery.magnific-popup.min.js']
+    watch: basePaths.src + 'js/**/*.js',
+    vendor: []
   }
 };

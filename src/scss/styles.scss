@@ -2,18 +2,21 @@
 
 @import "utils/_mixins";
 @import "utils/_help";
-@import "utils/_sprite";
+
+@import "bootstrap/_bootstrap-custom";
 
 @import "base/_normalize";
+
 @import "base/_vars";
+@import "base/_icons";
 @import "base/_base";
 @import "base/_typo";
-
-@import "grid/_grid";
+@import "base/_buttons";
 
 @import "layout/_header";
 @import "layout/_footer";
 @import "layout/_sidebar";
 
-@import "modules/_breadcrumbs";
-@import "modules/_modal";
+@import "pages/_home";
+
+@import "joomla/_index.scss";
