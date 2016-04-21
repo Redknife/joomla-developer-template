@@ -3,11 +3,14 @@
 ## Gulp плагины
 
 * [SCSS](http://sass-scss.ru)
-* [CSSO](https://github.com/css/csso)
+* [Postcss](https://github.com/postcss/postcss)
 * [Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
-* [Merge media queries](https://www.npmjs.com/package/gulp-merge-media-queries)
-* [CoffeeScript](http://coffeescript.org)
-* [Spritesmith](https://www.npmjs.com/package/spritesmith)
+* [CSS-mqpacker](https://github.com/hail2u/node-css-mqpacker)
+* [CSSO](https://github.com/css/csso)
+* [Webpack](https://webpack.github.io)
+* [ES6, Babel](https://babeljs.io)
+* [ESlint](http://eslint.org)
+* [Iconfont](https://github.com/nfroidure/gulp-iconfont)
 * [Imagemin](https://www.npmjs.com/package/gulp-imagemin)
 * [UglifyJS](https://www.npmjs.com/package/gulp-uglify)
 
