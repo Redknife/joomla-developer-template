@@ -38,6 +38,7 @@ class blank_j3{
         $this->show_right = $template->countModules('right');
         $this->show_bottom = $template->countModules('bottom');
         $this->show_footer = $template->countModules('footer');
+        $this->show_msg = $template->countModules('message');
     }
 
     public function getContentClass()
