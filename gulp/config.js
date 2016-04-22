@@ -75,7 +75,7 @@ export default {
       fontPath: 'iconfont/',
       cssClass: 'i'
     },
-    dest: path.join(basePaths.src, '/iconfont'),
+    dest: path.join(basePaths.dest, '/iconfont'),
     watch: path.join(basePaths.src, '/icons/**/*.svg')
   },
 
