@@ -1,20 +1,23 @@
-var spritesmith = require('gulp.spritesmith');
-var gulp = require('gulp');
-var imagemin = require('gulp-imagemin');
-var config = require('../config').sprite;
-var livereload = require('gulp-livereload');
-var merge = require('merge-stream');
-var buffer = require('vinyl-buffer');
+import spritesmith from 'gulp.spritesmith';
+import gulp from 'gulp';
+import imagemin from 'gulp-imagemin';
+import livereload from 'gulp-livereload';
+import merge from 'merge-stream';
+import buffer from 'vinyl-buffer';
+import conf from '../config';
 
-gulp.task('sprite', function() {
-  var spriteData = gulp.src(config.src)
+const config = conf.sprite;
+
+gulp.task('sprite', () => {
+  const spriteData = gulp.src(config.src)
       .pipe(spritesmith(config.settings));
-  var imgStream = spriteData.img
+
+  const imgStream = spriteData.img
     .pipe(buffer())
     .pipe(imagemin())
     .pipe(gulp.dest(config.imgDest));
 
-  var cssStream = spriteData.css
+  const cssStream = spriteData.css
     .pipe(gulp.dest(config.cssDest))
     .pipe(livereload());
 

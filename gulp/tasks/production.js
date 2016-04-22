@@ -1,7 +1,5 @@
-var gulp = require('gulp');
+import gulp from 'gulp';
 
-// Run this to compress all the things!
-gulp.task('prod', function(){
-  // This runs only if the karma tests pass
+gulp.task('prod', () => {
   gulp.start(['images', 'iconfont', 'mincss', 'minjs'])
 });

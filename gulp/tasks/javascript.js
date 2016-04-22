@@ -1,18 +1,20 @@
-var gulp = require('gulp');
-var sourcemaps = require('gulp-sourcemaps');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var livereload = require('gulp-livereload');
-var size = require('gulp-size');
-var config = require('../config').js;
-var streamqueue = require('streamqueue');
-var concat = require('gulp-concat');
-var handleErrors = require('../util/handleErrors');
-var webpackStream = require('webpack-stream');
-var path = require('path');
-var webpack = require("webpack");
+import gulp from 'gulp';
+import sourcemaps from 'gulp-sourcemaps';
+import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
+import livereload from 'gulp-livereload';
+import size from 'gulp-size';
+import streamqueue from 'streamqueue';
+import concat from 'gulp-concat';
+import handleErrors from '../util/handleErrors';
+import webpackStream from 'webpack-stream';
+import path from 'path';
+import webpack from "webpack";
+import conf from '../config';
 
-gulp.task('js', function () {
+const config = conf.js;
+
+gulp.task('js', () => {
   return gulp.src(config.src)
     .pipe(webpackStream({
       plugins: [

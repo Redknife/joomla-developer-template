@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('iconfont/iconfont.eot');
+  src: url('iconfont/iconfont.eot?#iefix') format('eot'),
+      url('iconfont/iconfont.woff2') format('woff2'),
+      url('iconfont/iconfont.woff') format('woff'),
+      url('iconfont/iconfont.ttf') format('truetype'),
+      url('iconfont/iconfont.svg#iconfont') format('svg');
+}
+
+@mixin i-styles {
+  font-family: "iconfont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+  text-decoration: none;
+  text-transform: none;
+}
+
+%i {
+  @include i-styles;
+}
+
+@function i-char($filename) {
+  $char: "";
+
+  @if $filename == cross {
+    $char: "\E001";
+  }
+  @if $filename == logo-74 {
+    $char: "\E002";
+  }
+  @if $filename == logo-saity {
+    $char: "\E003";
+  }
+
+  @return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+  &:#{$insert} {
+    @if $extend {
+      @extend %i;
+    } @else {
+      @include i-styles;
+    }
+    content: i-char($filename);
+  }
+}
+
+.i-cross {
+  @include icon(cross);
+}
+.i-logo-74 {
+  @include icon(logo-74);
+}
+.i-logo-saity {
+  @include icon(logo-saity);
+}

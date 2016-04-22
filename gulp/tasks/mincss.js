@@ -1,10 +1,13 @@
-var gulp      = require('gulp');
-var config    = require('../config').sass;
-var size      = require('gulp-size');
-var csso = require('gulp-csso');
-var rename = require('gulp-rename');
+import gulp from 'gulp';
+import size from 'gulp-size';
+import csso from 'gulp-csso';
+import rename from 'gulp-rename';
+import conf from '../config';
 
-gulp.task('mincss', ['sass'], function() {
+const config = conf.sass;
+
+
+gulp.task('mincss', ['sass'], () => {
   return gulp.src(config.dest + config.resultFile)
     .pipe(csso())
     .pipe(rename(config.resultMinFile))

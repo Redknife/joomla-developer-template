@@ -1,21 +1,23 @@
-var gulp = require('gulp');
-var livereload = require('gulp-livereload');
-var sass = require('gulp-ruby-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var handleErrors = require('../util/handleErrors');
-var config = require('../config').sass;
-var rename = require('gulp-rename');
-var size = require('gulp-size');
-var postcss = require('gulp-postcss');
-var mqpacker = require("css-mqpacker");
-var autoprefixer = require('autoprefixer');
+import gulp from 'gulp';
+import livereload from 'gulp-livereload';
+import sass from 'gulp-ruby-sass';
+import sourcemaps from 'gulp-sourcemaps';
+import handleErrors from '../util/handleErrors';
+import rename from 'gulp-rename';
+import size from 'gulp-size';
+import postcss from 'gulp-postcss';
+import mqpacker from "css-mqpacker";
+import autoprefixer from 'autoprefixer';
+import conf from '../config';
 
-var processors = [
+const config = conf.sass;
+
+const processors = [
   autoprefixer(config.autoprefixer.browsers),
   mqpacker({ sort: true })
 ];
 
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   return sass(config.src, config.settings)
     .on('error', handleErrors)
     .pipe(postcss(processors))

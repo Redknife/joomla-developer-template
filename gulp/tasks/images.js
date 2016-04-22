@@ -1,11 +1,13 @@
-var changed = require('gulp-changed');
-var gulp = require('gulp');
-var imagemin = require('gulp-imagemin');
-var config = require('../config').images;
-var livereload = require('gulp-livereload');
-var size = require('gulp-size');
+import changed from 'gulp-changed';
+import gulp from 'gulp';
+import imagemin from 'gulp-imagemin';
+import livereload from 'gulp-livereload';
+import size from 'gulp-size';
+import conf from '../config';
 
-gulp.task('images', function() {
+const config = conf.images;
+
+gulp.task('images', () => {
   return gulp.src(config.src)
     .pipe(changed(config.dest))
     .pipe(imagemin())
