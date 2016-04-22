@@ -11,7 +11,7 @@
   <version>1.0.0</version>
   <description>TMPL_JOOMLA3_DESC</description>
   <files>
-    <filename>.bowerrc</filename>
+    <filename>.babelrc</filename>
     <filename>bower.json</filename>
     <filename>gulpfile.js</filename>
     <filename>package.json</filename>
