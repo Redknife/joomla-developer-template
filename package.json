@@ -8,6 +8,10 @@
     "type": "git",
     "url": "git://github.com/Redknife/gulpfile.git"
   },
+  "scripts" : {
+    "postinstall": "bower install",
+    "build" : "gulp prod"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "babel-loader": "^6.2.4",
