@@ -11,14 +11,17 @@ $media-stack:
 
   (group: md, id: general, rule: "only screen and (min-width: 992px)"),
   (group: md, id: max, rule: "only screen and (max-width: 1199px)"),
+  (group: md, id: between, rule: "only screen and (min-width: 992px) and (max-width: 1199px)"),
 
   (group: sm, id: general, rule: "only screen and (min-width: 768px)"),
   (group: sm, id: max, rule: "only screen and (max-width: 991px)"),
+  (group: sm, id: between, rule: "only screen and (min-width: 768px) and (max-width: 991px)"),
 
   (group: ms, id: general, rule: "only screen and (min-width: 480px)"),
   (group: ms, id: max, rule: "only screen and (max-width: 767px)"),
+  (group: ms, id: between, rule: "only screen and (min-width: 480px) and (max-width: 767px)"),
 
-  (group: xs, id: max, rule: "only screen and (max-width: 480px)"),
+  (group: xs, id: max, rule: "only screen and (max-width: 767px)"),
 
   (group: retina, id: general, rule: "only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)"),
   (group: print, id: general, rule: "only print");

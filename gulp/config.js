@@ -14,10 +14,11 @@ export default {
     resultFile: 'styles.css',
     resultMinFile: 'styles.min.css',
     watch: path.join(basePaths.src, '/scss/**/*'),
-
+    
     settings: {
       sourcemap: true,
-      loadPath: basePaths.bower
+      includePaths: basePaths.bower,
+      outputStyle: 'compact'
     },
 
     autoprefixer: {

@@ -131,3 +131,102 @@
 /*
 ** GRID MID SCREEN SUPPORT
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Bootstrap flexbox
+*/
+
+.row-flex{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  flex: 0;
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  .row{
+    min-width: 100%;
+  }
+
+  >[class*=col-] {
+    font-size: 14px;
+    vertical-align: top;
+    float: none;
+
+
+    display: flex;
+    //flex: 1 1 auto;
+  }
+
+  &.-vertical-center {
+    align-items: center;
+  }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Responsive utilities
+*/
+
+.visible-xs-table,
+.visible-xs-table-cell,
+.visible-sm-table,
+.visible-sm-table-cell,
+.visible-md-table,
+.visible-md-table-cell,
+.visible-lg-table,
+.visible-lg-table-cell{
+  display: none !important;
+}
+
+.visible-xs-table {
+  @include media(xs, max) {
+    display: table !important;
+  }
+}
+
+.visible-xs-table-cell {
+  @include media(xs, max) {
+    display: table-cell !important;
+  }
+}
+
+.visible-sm-table {
+  @include media(sm, between) {
+    display: table !important;
+  }
+}
+
+.visible-sm-table-cell {
+  @include media(sm, between) {
+    display: table-cell !important;
+  }
+}
+
+.visible-md-table {
+  @include media(md, between) {
+    display: table !important;
+  }
+}
+
+.visible-md-table-cell {
+  @include media(md, between) {
+    display: table-cell !important;
+  }
+}
+
+.visible-lg-table {
+  @include media(lg) {
+    display: table !important;
+  }
+}
+
+.visible-lg-table-cell {
+  @include media(lg) {
+    display: table-cell !important;
+  }
+}

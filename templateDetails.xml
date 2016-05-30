@@ -55,8 +55,16 @@
   </languages>
   <config>
     <fields name="params">
-
      <fieldset name="optimise">
+         <field name="min_assets"
+                type="radio"
+                class="btn-group btn-group-yesno"
+                default="1"
+                label="TPL_BLANK_J3_MIN_ASSETS_LABEL">
+             <option value="1">JYES</option>
+             <option value="0">JNO</option>
+         </field>
+
       <field name="disable_scripts"
        type="radio"
        class="btn-group btn-group-yesno"
