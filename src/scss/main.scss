@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+@import
+  'utilities/variables',
+  'utilities/mixins',
+  'utilities/placeholders';
+
+@import
+  'vendors/bootstrap',
+  'vendors/mfp',
+  'vendors/selectize',
+  'vendors/slick';
+
+@import
+  'base/reset',
+  'base/global',
+  'base/animations',
+  'base/base',
+  'base/typography',
+  'base/icons',
+  'base/elements',
+  'base/buttons',
+  'base/loaders';
+
+@import
+  'layout/navigation',
+  'layout/grid',
+  'layout/header',
+  'layout/footer',
+  'layout/sidebar';
+
+@import
+  'modules/breadcrumbs',
+  'modules/forms',
+  'modules/modal';
+
+@import 'pages/home';
+
+@import "joomla/_index.scss";

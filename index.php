@@ -1,6 +1,7 @@
 <?php defined('_JEXEC') or die;
 require_once(JPATH_THEMES.'/blank_j3/_php/blank_j3.php');
 JHtmlBootstrap::loadCss(false);
+$this->setGenerator(null);
 
 $app = JFactory::getApplication();
 $doc = JFactory::getDocument();
@@ -15,6 +16,8 @@ $doc->addStyleSheet($assets['styles']);
 
 // Add scripts..
 $doc->addScript($assets['scripts']);
+//$assets_path = JURI::base(true) . '/templates/' . JFactory::getApplication()->getTemplate() . '/public/';
+//$doc->addScript('/templates/blank_j3/public/main.93d893078685111e7ca9.js');
 
 $menu = $app->getMenu()->getActive();
 $body_class = '';
@@ -22,34 +25,22 @@ $body_class = '';
 if (is_object($menu)){
     $body_class = $tmpl->is_frontpage() ? 'g-homepage ' : '';
     $body_class .= $menu->params->get('pageclass_sfx');
-    $body_class .= str_replace('_', '-', ' g-jm-'.$menu->query['option'].'-'.$menu->query['view']);
+    $body_class .= str_replace('_', '-', ' g-j-'.$menu->query['option'].'-'.$menu->query['view']);
 }
 ?>
 
 <!DOCTYPE html>
 <html dir="<?php echo $this->direction; ?>" lang="<?php echo $this->language; ?>" >
     <head>
-        <meta content='text/html; charset=utf-8' http-equiv='content-type'>
-        <meta content='width=device-width, maximum-scale=1, shrink-to-fit=no' name='viewport'>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
         <jdoc:include type="headj3" />
 
         <link rel="icon" href="<?php echo JURI::root(); ?>favicon.ico" type="image/x-icon">
 
-        <!--[if lt IE 7]>
-            <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
-        <![endif]-->
-        <!--[if lt IE 8]>
-            <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
-        <![endif]-->
         <!--[if lt IE 9]>
-            <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	    	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
         <![endif]-->
     </head>
     <body class="<?php echo $body_class; ?>">
-
         <?php if($tmpl->show_header): ?>
         <header class="l-header">
             <div class="container">
@@ -129,6 +120,14 @@ if (is_object($menu)){
         <?php if($params->get('disable_scripts')): ?>
             <jdoc:include type="footj3" />
         <?php endif; ?>
+
+        <div class="container">
+            <button class="js-btn">Test</button>
+
+	        <div id="container">
+		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias ea eos in ipsa minus nihil quia, quisquam rem totam. Amet consequuntur dolorem excepturi nam non perferendis praesentium quod, ut.</p>
+	        </div>
+        </div>
 
         <?php echo $tmpl->get_ym(); ?>
         <?php echo $tmpl->get_ga(); ?>

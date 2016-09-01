@@ -5,7 +5,7 @@ import 'whatwg-fetch';
 import 'magnific-popup';
 import 'jquery.maskedinput/src/jquery.maskedinput';
 
-import { checkHttpStatus } from '../utils/checkHttpStatus';
+import checkHttpStatus from '../utils/checkHttpStatus';
 
 export default (selector) => {
   $('[data-mask]').each((i, el) => {

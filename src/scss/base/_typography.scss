@@ -1,0 +1,17 @@
+a {
+  transition: color 0.3s ease;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+p {
+  margin: 0 0 10px;
+}

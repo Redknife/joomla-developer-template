@@ -1,15 +1,15 @@
 @font-face {
-  font-family: "iconfont";
-  src: url('iconfont/iconfont.eot');
-  src: url('iconfont/iconfont.eot?#iefix') format('eot'),
-      url('iconfont/iconfont.woff2') format('woff2'),
-      url('iconfont/iconfont.woff') format('woff'),
-      url('iconfont/iconfont.ttf') format('truetype'),
-      url('iconfont/iconfont.svg#iconfont') format('svg');
+  font-family: "icons";
+  src: url('fonts/icons/icons.eot');
+  src: url('fonts/icons/icons.eot?#iefix') format('eot'),
+      url('fonts/icons/icons.woff2') format('woff2'),
+      url('fonts/icons/icons.woff') format('woff'),
+      url('fonts/icons/icons.ttf') format('truetype'),
+      url('fonts/icons/icons.svg#icons') format('svg');
 }
 
-@mixin i-styles {
-  font-family: "iconfont";
+@mixin icon-reset-styles {
+  font-family: "icons";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-style: normal;
@@ -20,21 +20,24 @@
   text-transform: none;
 }
 
-%i {
-  @include i-styles;
+%icon {
+  @include icon-reset-styles;
 }
 
-@function i-char($filename) {
+@function icon-char($filename) {
   $char: "";
 
-  @if $filename == cross {
+  @if $filename == 74saity74 {
     $char: "\E001";
   }
-  @if $filename == logo-74 {
+  @if $filename == cross {
     $char: "\E002";
   }
-  @if $filename == logo-saity {
+  @if $filename == logo-74 {
     $char: "\E003";
+  }
+  @if $filename == logo-saity {
+    $char: "\E004";
   }
 
   @return $char;
@@ -43,14 +46,17 @@
 @mixin icon($filename, $insert: before, $extend: true) {
   &:#{$insert} {
     @if $extend {
-      @extend %i;
+      @extend %icon;
     } @else {
-      @include i-styles;
+      @include icon-reset-styles;
     }
-    content: i-char($filename);
+    content: icon-char($filename);
   }
 }
 
+.i-74saity74 {
+  @include icon(74saity74);
+}
 .i-cross {
   @include icon(cross);
 }

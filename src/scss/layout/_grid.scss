@@ -1,0 +1,176 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** GRID MID SCREEN SUPPORT
+*/
+//
+//@media (min-width: $screen-xs) {
+//  .container {
+//    @media (max-width: $screen-sm ) {
+//      //max-width: $screen-sm - 20px;
+//      width: 450px;
+//    }
+//  }
+//
+//  .col-ms-1,
+//  .col-ms-2,
+//  .col-ms-3,
+//  .col-ms-4,
+//  .col-ms-5,
+//  .col-ms-6,
+//  .col-ms-7,
+//  .col-ms-8,
+//  .col-ms-9,
+//  .col-ms-10,
+//  .col-ms-11 {
+//    float: left;
+//  }
+//  .col-ms-1  { width: percentage((1 / $grid-columns)); }
+//  .col-ms-2  { width: percentage((2 / $grid-columns)); }
+//  .col-ms-3  { width: percentage((3 / $grid-columns)); }
+//  .col-ms-4  { width: percentage((4 / $grid-columns)); }
+//  .col-ms-5  { width: percentage((5 / $grid-columns)); }
+//  .col-ms-6  { width: percentage((6 / $grid-columns)); }
+//  .col-ms-7  { width: percentage((7 / $grid-columns)); }
+//  .col-ms-8  { width: percentage((8 / $grid-columns)); }
+//  .col-ms-9  { width: percentage((9 / $grid-columns)); }
+//  .col-ms-10 { width: percentage((10/ $grid-columns)); }
+//  .col-ms-11 { width: percentage((11/ $grid-columns)); }
+//  .col-ms-12 { width: 100%; }
+//
+//  // Push and pull columns for source order changes
+//  .col-ms-push-1  { left: percentage((1 / $grid-columns)); }
+//  .col-ms-push-2  { left: percentage((2 / $grid-columns)); }
+//  .col-ms-push-3  { left: percentage((3 / $grid-columns)); }
+//  .col-ms-push-4  { left: percentage((4 / $grid-columns)); }
+//  .col-ms-push-5  { left: percentage((5 / $grid-columns)); }
+//  .col-ms-push-6  { left: percentage((6 / $grid-columns)); }
+//  .col-ms-push-7  { left: percentage((7 / $grid-columns)); }
+//  .col-ms-push-8  { left: percentage((8 / $grid-columns)); }
+//  .col-ms-push-9  { left: percentage((9 / $grid-columns)); }
+//  .col-ms-push-10 { left: percentage((10/ $grid-columns)); }
+//  .col-ms-push-11 { left: percentage((11/ $grid-columns)); }
+//
+//  .col-ms-pull-1  { right: percentage((1 / $grid-columns)); }
+//  .col-ms-pull-2  { right: percentage((2 / $grid-columns)); }
+//  .col-ms-pull-3  { right: percentage((3 / $grid-columns)); }
+//  .col-ms-pull-4  { right: percentage((4 / $grid-columns)); }
+//  .col-ms-pull-5  { right: percentage((5 / $grid-columns)); }
+//  .col-ms-pull-6  { right: percentage((6 / $grid-columns)); }
+//  .col-ms-pull-7  { right: percentage((7 / $grid-columns)); }
+//  .col-ms-pull-8  { right: percentage((8 / $grid-columns)); }
+//  .col-ms-pull-9  { right: percentage((9 / $grid-columns)); }
+//  .col-ms-pull-10 { right: percentage((10/ $grid-columns)); }
+//  .col-ms-pull-11 { right: percentage((11/ $grid-columns)); }
+//
+//  // Offsets
+//  .col-ms-offset-1  { margin-left: percentage((1 / $grid-columns)); }
+//  .col-ms-offset-2  { margin-left: percentage((2 / $grid-columns)); }
+//  .col-ms-offset-3  { margin-left: percentage((3 / $grid-columns)); }
+//  .col-ms-offset-4  { margin-left: percentage((4 / $grid-columns)); }
+//  .col-ms-offset-5  { margin-left: percentage((5 / $grid-columns)); }
+//  .col-ms-offset-6  { margin-left: percentage((6 / $grid-columns)); }
+//  .col-ms-offset-7  { margin-left: percentage((7 / $grid-columns)); }
+//  .col-ms-offset-8  { margin-left: percentage((8 / $grid-columns)); }
+//  .col-ms-offset-9  { margin-left: percentage((9 / $grid-columns)); }
+//  .col-ms-offset-10 { margin-left: percentage((10/ $grid-columns)); }
+//  .col-ms-offset-11 { margin-left: percentage((11/ $grid-columns)); }
+//}
+//
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Bootstrap flexbox
+*/
+
+.row-flex{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  flex: 0;
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  .row{
+    min-width: 100%;
+  }
+
+  > [class*=col-] {
+    font-size: 14px;
+    vertical-align: top;
+    float: none;
+
+    display: flex;
+    //flex: 1 1 auto;
+    flex: 0 0 auto;
+    margin: -.2px; /* hack adjust for wrapping */
+  }
+
+  &.-vertical-center {
+    align-items: center;
+  }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Responsive utilities
+*/
+
+.visible-xs-table,
+.visible-xs-table-cell,
+.visible-sm-table,
+.visible-sm-table-cell,
+.visible-md-table,
+.visible-md-table-cell,
+.visible-lg-table,
+.visible-lg-table-cell{
+  display: none !important;
+}
+
+.visible-xs-table {
+  @include media(xs, max) {
+    display: table !important;
+  }
+}
+
+.visible-xs-table-cell {
+  @include media(xs, max) {
+    display: table-cell !important;
+  }
+}
+
+.visible-sm-table {
+  @include media(sm, between) {
+    display: table !important;
+  }
+}
+
+.visible-sm-table-cell {
+  @include media(sm, between) {
+    display: table-cell !important;
+  }
+}
+
+.visible-md-table {
+  @include media(md, between) {
+    display: table !important;
+  }
+}
+
+.visible-md-table-cell {
+  @include media(md, between) {
+    display: table-cell !important;
+  }
+}
+
+.visible-lg-table {
+  @include media(lg) {
+    display: table !important;
+  }
+}
+
+.visible-lg-table-cell {
+  @include media(lg) {
+    display: table-cell !important;
+  }
+}

@@ -8,16 +8,16 @@
   <authorUrl>http://saity74.ru</authorUrl>
   <copyright>Saity74 LLC.</copyright>
   <license>GNU/GPL 2 or Later</license>
-  <version>1.0.0</version>
+  <version>2.0.0</version>
   <description>TMPL_JOOMLA3_DESC</description>
   <files>
-    <filename>.babelrc</filename>
     <filename>bower.json</filename>
-    <filename>gulpfile.babel.js</filename>
-    <filename>package.json</filename>
     <filename>error.php</filename>
+    <filename>gulpfile.babel.js</filename>
     <filename>index.html</filename>
     <filename>index.php</filename>
+    <filename>modernizrrc.json</filename>
+    <filename>package.json</filename>
     <filename>raw.php</filename>
     <filename>send.php</filename>
     <filename>templateDetails.xml</filename>
@@ -26,25 +26,16 @@
     <folder>language</folder>
     <folder>public</folder>
     <folder>src</folder>
-    <folder>gulp</folder>
+    <folder>tools</folder>
   </files>
   <positions>
-    <position>top</position>
-    <position>top-left</position>
-    <position>top-center</position>
-    <position>top-right</position>
+    <position>header</position>
     <position>user1</position>
     <position>user2</position>
     <position>user3</position>
-    <position>content-header</position>
-    <position>left</position>
-    <position>right</position>
-    <position>content-footer</position>
-    <position>bottom-left</position>
-    <position>bottom-center</position>
-    <position>bottom-right</position>
+    <position>content_header</position>
+    <position>content_footer</position>
     <position>bottom</position>
-    <position>bottom-social</position>
     <position>footer</position>
   </positions>
   <languages folder="language">
@@ -88,11 +79,11 @@
      type="textarea"
      class="span4"
      rows="5"
-     default="/media/system/js/caption.js &#13;&#10;
-/media/jui/js/bootstrap.min.js &#13;&#10;
-/media/jui/js/jquery.min.js &#13;&#10;
-/media/jui/js/jquery-noconflict.js &#13;&#10;
-/media/jui/js/jquery-migrate.min.js &#13;&#10;
+     default="/media/system/js/caption.js
+/media/jui/js/bootstrap.min.js
+/media/jui/js/jquery.min.js
+/media/jui/js/jquery-noconflict.js
+/media/jui/js/jquery-migrate.min.js
 /media/jui/js/chosen.jquery.min.js"
      label="TPL_BLANK_J3_DISABLED_SCRIPTS_LIST_LABEL"
      description="TPL_BLANK_J3_DISABLED_SCRIPTS_LIST_DESC"

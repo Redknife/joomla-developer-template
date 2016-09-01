@@ -1,0 +1,34 @@
+{
+  "minify": false,
+  "classPrefix": "f-",
+  "options": [
+    "setClasses",
+    "prefixed",
+    "prefixedCSS",
+    "prefixedCSSValue",
+    "mq"
+  ],
+  "feature-detects": [
+    "test/css/animations",
+    "test/css/calc",
+    "test/css/filters",
+    "test/css/flexbox",
+    "test/css/flexboxlegacy",
+    "test/css/flexboxtweener",
+    "test/css/flexwrap",
+    "test/css/transforms",
+    "test/css/transforms3d",
+    "test/css/transitions",
+    "test/css/vhunit",
+    "test/css/vmaxunit",
+    "test/css/vminunit",
+    "test/css/vwunit",
+
+    "test/svg",
+    "test/svg/asimg",
+    "test/svg/inline",
+    "test/svg/filters",
+
+    "test/touchevents"
+  ]
+}

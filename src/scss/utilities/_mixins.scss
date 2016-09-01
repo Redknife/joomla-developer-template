@@ -1,0 +1,153 @@
+// Force hardware acceleration
+@mixin ha() {
+  // 3D rendering on GPU
+  transform: translate3d(0, 0, 0);
+
+  // fix chrome and safari flicker
+  backface-visibility        : hidden;
+  perspective                : 1000;
+}
+
+
+// Strips the unit from a number
+@function strip-units($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+
+// Clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+// Reset style
+@mixin unstyled {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: none;
+  box-shadow: none;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline
+}
+
+
+// Inline-block with ie fallback
+@mixin inlineblock {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+
+// Convert pixels to ems
+@function em($pxval, $base: 16px) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1em;
+}
+
+
+// Convert pixels to rems
+@function rem($pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+
+  $base: $em-base;
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1rem;
+}
+
+
+/// Usage:
+/// Use vars from $color-stack.
+/// a {
+///   color: color(base);
+///   background: color(base, hover);
+///   border-color: color(orange, hover, 0.4);
+/// }
+
+@function color($group, $shade: normal, $transparency:1) {
+  @each $color in $color-stack {
+    $c-group: map-get($color, group);
+    $c-shade: map-get($color, id);
+    @if($group == map-get($color, group) and $shade == map-get($color, id)) {
+      @return rgba(map-get($color, color), $transparency);
+    }
+  }
+}
+
+
+/// Usage:
+/// Use vars from $media-stack or custom.
+/// h1{
+///   color: #333;
+///   @include media(tablet){
+///     font-size: 1rem;
+///   };
+///   @include media(small, inbetween){
+///     font-size: 1.2rem;
+///   };
+///   @include media(small){
+///     color: #000;
+///   };
+
+@mixin media($group, $id: general) {
+  @each $media in $media-stack {
+    @if($group == map-get($media, group) and $id == map-get($media, id)) {
+      $rule: map-get($media, rule);
+      @media #{$rule} {
+        @content
+      }
+    }
+  }
+}
+
+@mixin mq-max($width) {
+  @media only screen and (max-width: $width){
+    @content;
+  }
+}
+
+@mixin mq-min($width) {
+  @media only screen and (min-width: $width){
+    @content;
+  }
+}
+
+// Aspect ratio
+@mixin aspect-ratio($width, $height) {
+  padding-top: ($height / $width) * 100%;
+}
+
+@mixin nohover() {
+  .no-hover & {
+    @content;
+  }
+}
+
+@mixin nojs() {
+  .no-js & {
+    @content;
+  }
+}

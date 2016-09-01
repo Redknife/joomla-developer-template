@@ -9,6 +9,8 @@
 
 defined('JPATH_PLATFORM') or die;
 
+use Joomla\Utilities\ArrayHelper;
+
 /**
  * JDocument head renderer
  *
@@ -61,21 +63,25 @@ class JDocumentRendererHeadJ3 extends JDocumentRenderer
 		// Get line endings
 		$lnEnd = $document->_getLineEnd();
 		$tab = $document->_getTab();
-		$tagEnd = ' />';
+		$tagEnd = '>';
 		$buffer = '';
 
 		// Generate charset when using HTML5 (should happen first)
 		if ($document->isHtml5())
 		{
-			$buffer .= $tab . '<meta charset="' . $document->getCharset() . '" />' . $lnEnd;
+			$buffer .= $tab . '<meta charset="' . $document->getCharset() . '">' . $lnEnd;
 		}
 
 		// Generate base tag (need to happen early)
 		$base = $document->getBase();
+
 		if (!empty($base))
 		{
-			$buffer .= $tab . '<base href="' . $document->getBase() . '" />' . $lnEnd;
+			$buffer .= $tab . '<base href="' . $base . '">' . $lnEnd;
 		}
+
+		$buffer .= $tab . '<meta content="width=device-width, maximum-scale=1, shrink-to-fit=no" name="viewport">' . $lnEnd;
+		$buffer .= $tab . '<meta http-equiv="X-UA-Compatible" content="IE=edge">' . $lnEnd;
 
 		// Generate META tags (needs to happen as early as possible in the head)
 		foreach ($document->_metaTags as $type => $tag)
@@ -84,27 +90,29 @@ class JDocumentRendererHeadJ3 extends JDocumentRenderer
 			{
 				if ($type == 'http-equiv' && !($document->isHtml5() && $name == 'content-type'))
 				{
-					$buffer .= $tab . '<meta http-equiv="' . $name . '" content="' . htmlspecialchars($content) . '" />' . $lnEnd;
+					$buffer .= $tab . '<meta http-equiv="' . $name . '" content="' . htmlspecialchars($content, ENT_COMPAT, 'UTF-8') . '">' . $lnEnd;
 				}
-				elseif ($type == 'standard' && !empty($content))
+				elseif ($type != 'http-equiv' && !empty($content))
 				{
-					$buffer .= $tab . '<meta name="' . $name . '" content="' . htmlspecialchars($content) . '" />' . $lnEnd;
+					$buffer .= $tab . '<meta ' . $type . '="' . $name . '" content="' . htmlspecialchars($content, ENT_COMPAT, 'UTF-8') . '">' . $lnEnd;
 				}
 			}
 		}
 
 		// Don't add empty descriptions
 		$documentDescription = $document->getDescription();
+
 		if ($documentDescription)
 		{
-			$buffer .= $tab . '<meta name="description" content="' . htmlspecialchars($documentDescription) . '" />' . $lnEnd;
+			$buffer .= $tab . '<meta name="description" content="' . htmlspecialchars($documentDescription, ENT_COMPAT, 'UTF-8') . '">' . $lnEnd;
 		}
 
 		// Don't add empty generators
 		$generator = $document->getGenerator();
+
 		if ($generator)
 		{
-			$buffer .= $tab . '<meta name="generator" content="' . htmlspecialchars($generator) . '" />' . $lnEnd;
+			$buffer .= $tab . '<meta name="generator" content="' . htmlspecialchars($generator, ENT_COMPAT, 'UTF-8') . '">' . $lnEnd;
 		}
 
 		$buffer .= $tab . '<title>' . htmlspecialchars($document->getTitle(), ENT_COMPAT, 'UTF-8') . '</title>' . $lnEnd;
@@ -113,11 +121,16 @@ class JDocumentRendererHeadJ3 extends JDocumentRenderer
 		foreach ($document->_links as $link => $linkAtrr)
 		{
 			$buffer .= $tab . '<link href="' . $link . '" ' . $linkAtrr['relType'] . '="' . $linkAtrr['relation'] . '"';
-			if ($temp = JArrayHelper::toString($linkAtrr['attribs']))
+
+			if (is_array($linkAtrr['attribs']))
 			{
-				$buffer .= ' ' . $temp;
+				if ($temp = ArrayHelper::toString($linkAtrr['attribs']))
+				{
+					$buffer .= ' ' . $temp;
+				}
 			}
-			$buffer .= ' />' . $lnEnd;
+
+			$buffer .= '>' . $lnEnd;
 		}
 
 		// Generate stylesheet
@@ -220,5 +233,4 @@ class JDocumentRendererHeadJ3 extends JDocumentRenderer
 
 		return $buffer;
 	}
-
 }

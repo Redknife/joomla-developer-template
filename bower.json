@@ -6,6 +6,7 @@
     "**/*.txt"
   ],
   "dependencies": {
-    "bootstrap-sass": "^3.3.6"
+    "bootstrap-sass": "^3.3.6",
+    "sanitize-css": "^3.3.0"
   }
 }

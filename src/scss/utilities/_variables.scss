@@ -1,0 +1,60 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Colors
+*/
+
+$color-stack:
+  (group: black, id: normal, color: #000),
+  (group: black, id: hover, color: #333);
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Breakpoints
+*/
+
+$media-stack:
+  (group: lg, id: general, rule: "only screen and (min-width: 1200px)"),
+
+  (group: md, id: general, rule: "only screen and (min-width: 992px)"),
+  (group: md, id: max, rule: "only screen and (max-width: 1199px)"),
+  (group: md, id: between, rule: "only screen and (min-width: 992px) and (max-width: 1199px)"),
+
+  (group: sm, id: general, rule: "only screen and (min-width: 768px)"),
+  (group: sm, id: max, rule: "only screen and (max-width: 991px)"),
+  (group: sm, id: between, rule: "only screen and (min-width: 768px) and (max-width: 991px)"),
+
+  (group: ms, id: general, rule: "only screen and (min-width: 480px)"),
+  (group: ms, id: max, rule: "only screen and (max-width: 767px)"),
+  (group: ms, id: between, rule: "only screen and (min-width: 480px) and (max-width: 767px)"),
+
+  (group: xs, id: max, rule: "only screen and (max-width: 767px)"),
+
+  (group: retina, id: general, rule: "only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)"),
+  (group: print, id: general, rule: "only print");
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Sanitize
+*/
+
+$anchor-text-decoration: none;
+$background-repeat: no-repeat;
+$form-element-background-color: transparent;
+$form-element-color: inherit;
+$form-element-min-height: 1.5em;
+$media-element-vertical-align: middle;
+$monospace-font-family: monospace;
+$nav-list-style: none;
+$root-background-color: #ffffff;
+$root-box-sizing: border-box;
+$root-color: #000000;
+$root-cursor: default;
+$root-font-family: sans-serif;
+$root-font-size: 100%;
+$root-line-height: 1;
+$selection-background-color: #b3d4fc;
+$selection-color: #ffffff;
+$selection-text-shadow: none;
+$small-font-size: 75%;
+$table-border-collapse: collapse;
+$table-border-spacing: 0;
+$textarea-resize: vertical;

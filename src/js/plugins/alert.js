@@ -1,7 +1,6 @@
 import $ from 'jquery';
-import { transitionEvent } from '../utils/animationEvent';
+import { transitionEndEvent } from '../utils/whichTransitionEndEvent';
 
-// Alert
 export default (selector) => {
   $(selector).each((i, el) => {
     const $alert = $(el);
@@ -12,7 +11,7 @@ export default (selector) => {
 
       $alert.addClass('-out');
 
-      $alert.one(transitionEvent, () => {
+      $alert.one(transitionEndEvent, () => {
         $alert.hide(100);
       });
     });

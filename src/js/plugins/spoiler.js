@@ -1,7 +1,5 @@
 import $ from 'jquery';
 
-import { breakpointChangeEvent } from './breakpoints';
-
 export default (selector) => {
   $(selector).each((i, el) => {
     const $container = $(el);
@@ -30,12 +28,6 @@ export default (selector) => {
         open();
       } else {
         close();
-      }
-    });
-
-    $(window).on(breakpointChangeEvent, () => {
-      if (!isCollapsed) {
-        $box.css({ height: $content.outerHeight(true) });
       }
     });
   });

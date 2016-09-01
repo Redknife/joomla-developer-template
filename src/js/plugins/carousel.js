@@ -1,19 +1,20 @@
 import $ from 'jquery';
 import 'slick-carousel/slick/slick';
 
-export default (selector) => {
+export default (selector = '.js-slider') => {
   $(selector).each((i, el) => {
     const $carousel = $(el);
 
     $carousel.slick({
-      useCSS: true,
       useTransform: true,
+      useCSS: true,
 
-      adaptiveHeight: $carousel.data('adaptiveHeight') || true,
+      adaptiveHeight: $carousel.data('adaptiveHeight') || false,
 
-      dots: $carousel.data('dots') || true,
-      appendArrows: $carousel.parent().find('.js-carousel-arrows'),
-      appendDots: $carousel.parent().find('.js-carousel-dots'),
+      dots: $carousel.data('dots') || false,
+
+      autoplay: $carousel.data('autoplay') || false,
+      autoplaySpeed: $carousel.data('autoplaySpeed') || 4000,
     });
   });
 };

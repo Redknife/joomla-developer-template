@@ -1,1 +1,22 @@
-@charset 'UTF-8';
+.m-breadcrumbs {
+  @include unstyled();
+  @include clearfix();
+
+  > li {
+    float: left;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .divider {
+    padding: 0 12px;
+  }
+}
+

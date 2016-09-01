@@ -1,0 +1,59 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Simple spinner, single html element
+*/
+
+.e-loader {
+  width: 35px;
+  height: 35px;
+  border: 0.4em solid rgba(#000, 0.2);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+
+  &.-double {
+    border-width: 0.5em;
+    border-style: double;
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Pulse with label
+**
+** Markup:
+** <div class="m-pulse-loader">
+**   <div class="m-pulse-loader_figure"></div>
+**   <p class="m-pulse-loader_label">Loading..</p>
+** </div>
+*/
+
+.m-pulse-loader {
+  position: relative;
+  overflow: visible;
+  padding-top: 2em;
+  width: 2em;
+  height: 0;
+
+  &_figure {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    border: 0 solid lighten(#000, 20%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  &_label {
+    float: left;
+    margin: 0.5em 0 0 50%;
+    color: #000;
+    white-space: nowrap;
+    font-size: 0.875em;
+    line-height: 1.5em;
+    transform: translateX(-50%);
+    animation: pulse-loader-label 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+}
