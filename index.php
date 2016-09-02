@@ -121,14 +121,6 @@ if (is_object($menu)){
             <jdoc:include type="footj3" />
         <?php endif; ?>
 
-        <div class="container">
-            <button class="js-btn">Test</button>
-
-	        <div id="container">
-		        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias ea eos in ipsa minus nihil quia, quisquam rem totam. Amet consequuntur dolorem excepturi nam non perferendis praesentium quod, ut.</p>
-	        </div>
-        </div>
-
         <?php echo $tmpl->get_ym(); ?>
         <?php echo $tmpl->get_ga(); ?>
 
