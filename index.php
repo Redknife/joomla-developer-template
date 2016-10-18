@@ -34,7 +34,7 @@ if (is_object($menu)){
     <head>
         <jdoc:include type="headj3" />
 
-        <link rel="icon" href="<?php echo JURI::root(); ?>favicon.ico" type="image/x-icon">
+        <?php echo $tmpl->get_favicons_html(); ?>
 
         <!--[if lt IE 9]>
 	    	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>

@@ -93,4 +93,68 @@ export default {
       },
     },
   },
+
+  favicon: {
+    dataFile: path.join(basePaths.dest, 'favicons', 'faviconData.json'),
+    markupFileDest: path.join(basePaths.dest, 'favicons'),
+    markupFile: path.join(basePaths.dest, 'favicons', 'markup.html'),
+    settings: {
+      markupFile: path.join(basePaths.dest, 'favicons', 'faviconData.json'),
+      masterPicture: path.join(basePaths.src, '/favicon/favicon.jpg'),
+      dest: path.join(basePaths.dest, 'favicons'),
+      iconsPath: '/templates/blank_j3/public/favicons/',
+      design: {
+        ios: {
+          pictureAspect: 'noChange',
+          assets: {
+            ios6AndPriorIcons: false,
+            ios7AndLaterIcons: false,
+            precomposedIcons: false,
+            declareOnlyDefaultIcon: true,
+          },
+          appName: 'MySite',
+        },
+        desktopBrowser: {},
+        windows: {
+          pictureAspect: 'noChange',
+          backgroundColor: '#00aba9',
+          onConflict: 'override',
+          assets: {
+            windows80Ie10Tile: false,
+            windows10Ie11EdgeTiles: {
+              small: false,
+              medium: true,
+              big: false,
+              rectangle: false,
+            },
+          },
+          appName: 'MySite',
+        },
+        androidChrome: {
+          pictureAspect: 'noChange',
+          themeColor: '#ffffff',
+          manifest: {
+            name: 'MySite',
+            display: 'standalone',
+            orientation: 'notSet',
+            onConflict: 'override',
+            declared: true,
+          },
+          assets: {
+            legacyIcon: false,
+            lowResolutionIcons: false,
+          },
+        },
+        safariPinnedTab: {
+          pictureAspect: 'blackAndWhite',
+          threshold: 44.53125,
+          themeColor: '#00aba9',
+        },
+      },
+      settings: {
+        scalingAlgorithm: 'Mitchell',
+        errorOnImageTooSmall: false,
+      },
+    },
+  },
 };

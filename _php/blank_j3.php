@@ -80,6 +80,53 @@ class Blank_J3
         return ['styles' => $styles_path, 'scripts' => $scripts_path];
     }
 
+	/**
+	 * Validate favicons data object
+	 *
+	 * @param $data
+	 *
+	 * @return bool
+	 */
+	private function check_fav_data($data)
+	{
+		if (!is_object($data)) return false;
+
+		// status code
+		$status = isset($data->result->status) && $data->result->status == 'success';
+		if (!$status) return false;
+
+		// has html_code
+		$html_code = isset($data->favicon->html_code) && is_string($data->favicon->html_code);
+		if (!$html_code) return false;
+
+		return true;
+	}
+
+	/**
+	 * Get favicons html code
+	 *
+	 * @return string
+	 */
+	public function get_favicons_html()
+	{
+		$app                = JFactory::getApplication();
+		$data_file_rel_path = '/public/favicons/faviconData.json';
+		$data_file_abs_path = JPATH_THEMES . '/' . $app->getTemplate() . $data_file_rel_path;
+		$result             = '';
+
+		if (file_exists($data_file_abs_path))
+		{
+			$file_content = file_get_contents($data_file_abs_path);
+			$json         = json_decode($file_content);
+			if (self::check_fav_data($json))
+			{
+				$result = $json->favicon->html_code;
+			}
+		}
+
+		return $result;
+	}
+
     /**
      * Get Yandex.Metrics code
      *
