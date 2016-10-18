@@ -14,6 +14,7 @@
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint ./src/js/ || true",
     "lint:css": "stylelint ./src/scss/**/*.scss || true",
+    "favicon": "gulp favicon",
     "start": "NODE_ENV=dev gulp default watch",
     "test": "NODE_ENV=test karma start tools/testing/karma.conf.js --single-run || true",
     "test:watch": "npm run test -- --auto-watch --no-single-run",
@@ -55,7 +56,6 @@
     }
   },
   "devDependencies": {
-    "assets-webpack-plugin": "^3.4.0",
     "autoprefixer": "^6.4.0",
     "babel-core": "6.14.0",
     "babel-eslint": "^6.1.2",
