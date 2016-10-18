@@ -6,6 +6,7 @@ const basePaths = {
   src: path.join(cwd, 'src'),
   dest: path.join(cwd, 'public'),
   bower: path.join(cwd, 'bower_components'),
+  node_modules: path.join(cwd, 'node_modules'),
 };
 
 export default {
@@ -19,7 +20,7 @@ export default {
 
     sass: {
       sourcemap: true,
-      includePaths: basePaths.bower,
+      includePaths: [basePaths.node_modules, basePaths.bower],
       outputStyle: 'compact',
     },
 

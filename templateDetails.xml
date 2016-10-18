@@ -11,7 +11,6 @@
   <version>2.0.0</version>
   <description>TMPL_JOOMLA3_DESC</description>
   <files>
-    <filename>bower.json</filename>
     <filename>error.php</filename>
     <filename>gulpfile.babel.js</filename>
     <filename>index.html</filename>

@@ -9,7 +9,7 @@
     "url": "git://github.com/Redknife/joomla-developer-template.git"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "echo 'npm start - runs the app in dev mode (watching, sourcemaps, etc)'",
     "build": "NODE_ENV=production gulp default",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint ./src/js/ || true",
@@ -122,8 +122,8 @@
     "webpack": "1.13.2"
   },
   "dependencies": {
-    "matchmedia-polyfill": "^0.3.0",
     "babel-polyfill": "^6.9.1",
+    "bootstrap-sass": "3.3.7",
     "bowser": "1.4.5",
     "jquery": "^2.2.4",
     "jquery.maskedinput": "^1.4.1",
@@ -131,9 +131,11 @@
     "jquery.transit": "^0.9.12",
     "lodash": "4.15.0",
     "magnific-popup": "^1.1.0",
+    "matchmedia-polyfill": "^0.3.0",
     "modernizr": "3.3.1",
     "parsleyjs": "^2.3.11",
     "redux": "^3.5.2",
+    "sanitize.css": "3.3.0",
     "selectize": "^0.12.1",
     "slick-carousel": "^1.6.0",
     "stampit": "^2.1.1",
