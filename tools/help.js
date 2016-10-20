@@ -4,7 +4,7 @@ const border = chalk.green.underline(' '.repeat(70));
 const commands = [
   {
     cmd: 'npm run build',
-    description: `alias for ${chalk.bold('npm run build')}`,
+    description: `alias for ${chalk.bold('npm run build:prod')}`,
   },
   {
     cmd: 'npm run build:dev',
