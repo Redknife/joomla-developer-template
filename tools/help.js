@@ -43,4 +43,4 @@ commands.forEach((item) => {
   console.log(`${chalk.bold.green(item.cmd)} - ${item.description}`);
   if (item.spacerAfter) console.log('');
 });
-console.log(`\n${border}`);
+console.log(`${border}`);
