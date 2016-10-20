@@ -1,3 +1,8 @@
-import requireDir from 'require-dir';
+import gulp from 'gulp';
+import tasksRegistry from './tools/taskRegistry';
 
-requireDir('./tools/gulp', { recurse: true });
+if (typeof process.env.NODE_ENV === 'undefined') {
+  process.env.NODE_ENV = 'dev';
+}
+
+gulp.registry(tasksRegistry);

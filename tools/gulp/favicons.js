@@ -1,17 +1,13 @@
 import gulp from 'gulp';
 import realFavicon from 'gulp-real-favicon';
 import fs from 'fs';
-import conf from '../config';
+import { favicons as config } from '../config';
 
-const config = conf.favicon;
-
-gulp.task('favicon', ['favicon:gen']);
-
-gulp.task('favicon:gen', (cb) => {
+export default function faviconsGen(cb) {
   realFavicon.generateFavicon(config.settings, cb);
-});
+}
 
-gulp.task('favicon:markup', (cb) => {
+export function faviconsGenMarkup(cb) {
   fs.readFile(config.dataFile, (err, data) => {
     if (err) throw err;
     const obj = JSON.parse(data);
@@ -21,12 +17,15 @@ gulp.task('favicon:markup', (cb) => {
       .pipe(gulp.dest(config.markupFileDest));
     cb();
   });
-});
+}
 
-gulp.task('favicon:check-update', (cb) => {
+export function checkFaviconUpdate(cb) {
   const currentVersion = JSON.parse(fs.readFileSync(config.dataFile)).version;
   realFavicon.checkForUpdates(currentVersion, (err) => {
     if (err) throw err;
     cb();
   });
-});
+}
+
+gulp.task('favicons', faviconsGen);
+

@@ -1,19 +1,15 @@
 import changed from 'gulp-changed';
 import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
-import livereload from 'gulp-livereload';
-import size from 'gulp-size';
-import conf from '../config';
+import { images as config } from '../config';
+import afterCompleteTaskCb from './utils/afterCompleteTaskCb';
 
-const config = conf.images;
-
-gulp.task('images', () => {
-  return gulp.src(config.src)
+export default function images() {
+  return gulp.src(config.src, { since: gulp.lastRun('images') })
     .pipe(changed(config.dest))
     .pipe(imagemin())
     .pipe(gulp.dest(config.dest))
-    .pipe(livereload())
-    .pipe(size({
-      title: 'IMAGES',
-    }));
-});
+    .pipe(afterCompleteTaskCb());
+}
+
+gulp.task('images', images);

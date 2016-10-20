@@ -1,13 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-const AssetsPlugin = require('assets-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
-module.exports = (options) => ({
+module.exports = options => ({
   entry: {
-    app: path.join(process.cwd(), 'src/js/app.js'),
+    app: './src/js/app.js',
   },
 
   output: Object.assign({
@@ -70,7 +67,7 @@ module.exports = (options) => ({
     colors: true,
     version: false,
     hash: false,
-    timings: false,
+    timings: true,
     chunks: false,
     chunkModules: false,
   },

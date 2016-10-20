@@ -1,5 +1,4 @@
 import gulp from 'gulp';
-import livereload from 'gulp-livereload';
 import gutil from 'gulp-util';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
@@ -8,39 +7,52 @@ import postcss from 'gulp-postcss';
 import mqpacker from 'css-mqpacker';
 import fixies from 'postcss-fixes';
 import autoprefixer from 'autoprefixer';
-import gulpif from 'gulp-if';
-import csso from 'gulp-csso';
-import conf from '../config';
 import assets from 'postcss-assets';
 import initial from 'postcss-initial';
+import csso from 'gulp-csso';
+import { styles as config } from '../config';
+import afterCompleteTaskCb from './utils/afterCompleteTaskCb';
 
-const isDev = process.env.NODE_ENV === 'dev';
-
-const processors = [
+const commonProcessors = [
   fixies,
-  initial({
-    reset: 'inherited',
-  }),
-  assets(conf.styles.assets),
-  autoprefixer(conf.styles.autoprefixer),
-  mqpacker({ sort: true }),
+  initial(config.postcss.initial),
+  assets(config.postcss.assets),
+  autoprefixer(config.postcss.autoprefixer),
 ];
 
-const finalFilename = isDev ? 'styles' : 'styles.min';
+const processors = [
+  ...commonProcessors,
+  mqpacker(config.postcss.mqpacker),
+];
 
-// TODO: optimize task: multiply funcs for dev and prod build
+const processorsDev = [
+  ...commonProcessors,
+];
 
-gulp.task('styles', () => {
-  return gulp.src(conf.styles.src)
-    .pipe(gulpif(isDev, sourcemaps.init()))
-    .pipe(sass(conf.styles.sass).on('error', sass.logError))
+export function styles() {
+  return gulp.src(config.src)
+    .pipe(sass(config.sass).on('error', sass.logError))
     .pipe(postcss(processors))
     .on('error', gutil.log)
-    .pipe(gulpif(isDev, sourcemaps.write()))
-    .pipe(gulpif(!isDev, csso()))
-    .pipe(rename({
-      basename: finalFilename,
-    }))
-    .pipe(gulp.dest(conf.styles.dest))
-    .pipe(gulpif(isDev, livereload()));
-});
+    .pipe(csso())
+    .pipe(rename({ basename: `${config.resultFilename}.min` }))
+    .pipe(gulp.dest(config.dest))
+    .pipe(afterCompleteTaskCb());
+}
+
+export function stylesDev() {
+  return gulp.src(config.src)
+    .pipe(sourcemaps.init())
+    .pipe(sass(config.sass).on('error', sass.logError))
+    .pipe(postcss(processorsDev))
+    .on('error', gutil.log)
+    .pipe(sourcemaps.write())
+    .pipe(rename({ basename: config.resultFilename }))
+    .pipe(gulp.dest(config.dest))
+    .pipe(afterCompleteTaskCb());
+}
+
+
+gulp.task('styles', styles);
+gulp.task('styles:dev', stylesDev);
+

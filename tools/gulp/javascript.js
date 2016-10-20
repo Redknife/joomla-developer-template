@@ -1,21 +1,34 @@
+/* eslint no-param-reassign: 0 */
 import gulp from 'gulp';
-import livereload from 'gulp-livereload';
-import webpack from 'webpack';
 import gutil from 'gulp-util';
+import webpack from 'webpack-stream';
+import afterCompleteTaskCb from './utils/afterCompleteTaskCb';
 
 import webpackDevConfig from '../webpack.dev.babel';
 import webpackProdConfig from '../webpack.prod.babel';
 
-const isDev = process.env.NODE_ENV === 'dev';
+const watch = Boolean(process.env.NODE_WATCH);
 
-const config = isDev ? webpackDevConfig : webpackProdConfig;
-const bundler = webpack(config);
+const makeTask = (webpackConfig) => {
+  webpackConfig.watch = watch;
+  const src = Object.keys(webpackConfig.entry).map(key => webpackConfig.entry[key]);
+  const wpStreamConf = Object.assign({ quiet: true }, webpackConfig.stats, webpackConfig);
 
-gulp.task('js', (cb) => {
-  bundler.run((err, stats) => {
-    if (err) throw new gutil.PluginError('js', err);
-    gutil.log('[webpack] \n', stats.toString(config.stats));
-    livereload.reload();
-    cb(err);
-  });
-});
+  return (cb) => {
+    return gulp.src(src)
+      .pipe(webpack(wpStreamConf, null, (err, stats) => {
+        if (err) throw new gutil.PluginError('webpack', err);
+        gutil.log('[webpack]', stats.toString(webpackConfig.stats));
+        if (watch) afterCompleteTaskCb();
+        cb();
+      }))
+      .pipe(gulp.dest(webpackConfig.output.path))
+      .pipe(afterCompleteTaskCb());
+  };
+};
+
+export const js = makeTask(webpackProdConfig);
+export const jsDev = makeTask(webpackDevConfig);
+
+gulp.task('js', js);
+gulp.task('js:dev', jsDev);
