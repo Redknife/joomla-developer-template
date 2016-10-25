@@ -3,7 +3,7 @@ import stampit from 'stampit';
 
 import { bpChange } from '../actions';
 
-const bps = new Map([
+const bps = [
   [
     'xs',
     'screen and (min-width: 1px)',
@@ -20,15 +20,14 @@ const bps = new Map([
     'lg',
     'screen and (min-width: 1200px)',
   ],
-]);
+];
 
-export default stampit({
-  init: ({ instance }) => {
-    bps.forEach((mq, name) => {
-      const mql = matchMedia(mq);
-      mql.addListener(() => {
-        if (isFunction(instance.dispatch)) instance.dispatch(bpChange(name));
-      });
+export default stampit().init(function init() {
+  const self = this;
+  bps.forEach((mq, name) => {
+    const mql = matchMedia(mq);
+    mql.addListener(() => {
+      if (isFunction(self.dispatch)) self.dispatch(bpChange(name));
     });
-  },
+  });
 });
