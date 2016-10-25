@@ -13,6 +13,5 @@ function breakpoint(state = 'xs', action) {
 // Combine
 export default combineReducers({
   breakpoint,
-  ua: (state = {}) => state,
 });
 

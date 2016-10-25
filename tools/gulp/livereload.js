@@ -1,8 +1,9 @@
 import gulp from 'gulp';
 import livereload from 'gulp-livereload';
 
-export default function startLivereload() {
+export default function startLivereload(cb) {
   livereload.listen();
+  cb();
 }
 
-gulp.task('livereload', startLivereload);
+gulp.task('startLivereload', startLivereload);

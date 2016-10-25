@@ -17,6 +17,12 @@ export const clean = {
 };
 configuration.clean = clean;
 
+// Js task
+export const js = {
+  watch: path.join(basePaths.src, '/js/**/*.js'),
+};
+configuration.js = js;
+
 // Styles task
 export const styles = {
   src: path.join(basePaths.src, '/scss/main.scss'),

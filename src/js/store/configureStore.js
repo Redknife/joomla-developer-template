@@ -1,5 +1,5 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import rootReducer from './reducer';
+import rootReducer from '../reducer';
 
 const devtools = window.devToolsExtension || (() => noop => noop);
 
@@ -20,7 +20,7 @@ export default (initialState) => {
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('./reducer', () => {
-      const nextReducer = require('./reducer').default;
+      const nextReducer = require('../reducer').default;
       store.replaceReducer(nextReducer);
     });
   }

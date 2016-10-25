@@ -39,12 +39,12 @@ export class TasksRegistry extends HubRegistry {
     const watch = () => {
       watchers.forEach(watcher => watcher());
     };
-    gulp.task('watch', gulp.series(watch, 'livereload'));
+    gulp.task('watch', watch);
   }
 
   makeDefaultTask(gulp) {
-    const task = this.watch ? gulp.series('build', 'watch') : gulp.parallel('build');
-
+    const defaultTask = this.watch ? gulp.series('build', 'watch') : gulp.parallel('build');
+    const task = this.watch ? gulp.series('startLivereload', defaultTask) : defaultTask;
     gulp.task('default', task);
   }
 

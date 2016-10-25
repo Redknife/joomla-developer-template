@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 // Disable hover effect while scrolling
 export default (bodyClass = 'g-disable-hover') => {
   const $body = $('body');

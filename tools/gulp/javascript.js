@@ -1,29 +1,23 @@
-/* eslint no-param-reassign: 0 */
 import gulp from 'gulp';
 import gutil from 'gulp-util';
-import webpack from 'webpack-stream';
-import afterCompleteTaskCb from './utils/afterCompleteTaskCb';
+import webpack from 'webpack';
+import livereload from 'gulp-livereload';
 
 import webpackDevConfig from '../webpack.dev.babel';
 import webpackProdConfig from '../webpack.prod.babel';
 
-const watch = Boolean(process.env.NODE_WATCH);
+const watch = process.env.NODE_WATCH;
 
 const makeTask = (webpackConfig) => {
-  webpackConfig.watch = watch;
-  const src = Object.keys(webpackConfig.entry).map(key => webpackConfig.entry[key]);
-  const wpStreamConf = Object.assign({ quiet: true }, webpackConfig.stats, webpackConfig);
+  const bundler = webpack(webpackConfig);
 
   return (cb) => {
-    return gulp.src(src)
-      .pipe(webpack(wpStreamConf, null, (err, stats) => {
-        if (err) throw new gutil.PluginError('webpack', err);
-        gutil.log('[webpack]', stats.toString(webpackConfig.stats));
-        if (watch) afterCompleteTaskCb();
-        cb();
-      }))
-      .pipe(gulp.dest(webpackConfig.output.path))
-      .pipe(afterCompleteTaskCb());
+    bundler.run((err, stats) => {
+      if (err) throw new gutil.PluginError('js', err);
+      gutil.log('[webpack!] \n', stats.toString(webpackConfig.stats));
+      if (watch) livereload.reload();
+      cb();
+    });
   };
 };
 
