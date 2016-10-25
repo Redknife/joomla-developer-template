@@ -5,18 +5,22 @@ import sourcemaps from 'gulp-sourcemaps';
 import rename from 'gulp-rename';
 import postcss from 'gulp-postcss';
 import mqpacker from 'css-mqpacker';
-import fixies from 'postcss-fixes';
+import postcssFixies from 'postcss-fixes';
 import autoprefixer from 'autoprefixer';
-import assets from 'postcss-assets';
-import initial from 'postcss-initial';
+import postcssAssets from 'postcss-assets';
+import postcssInitial from 'postcss-initial';
+import postcssWillChange from 'postcss-will-change';
+import postcssEasings from 'postcss-easings';
 import csso from 'gulp-csso';
 import { styles as config } from '../config';
 import afterCompleteTaskCb from './utils/afterCompleteTaskCb';
 
 const commonProcessors = [
-  fixies,
-  initial(config.postcss.initial),
-  assets(config.postcss.assets),
+  postcssInitial(config.postcss.initial),
+  postcssFixies,
+  postcssWillChange,
+  postcssEasings,
+  postcssAssets(config.postcss.assets),
   autoprefixer(config.postcss.autoprefixer),
 ];
 

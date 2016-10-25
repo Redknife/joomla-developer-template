@@ -33,21 +33,18 @@ export const styles = {
   postcss: {
     autoprefixer: {
       browsers: [
-        'last 3 versions',
-        '> 5%',
-        'ie >= 8',
+        '> 7%',
+        'last 2 version',
+        'ie >= 9',
         'ios >= 7',
         'android >= 4.0',
       ],
     },
 
     assets: {
-      basePath: path.resolve(cwd, '..', '..'),
-      loadPaths: [
-        'images/',
-        path.relative(path.resolve(cwd, '..', '..'), path.join(cwd, 'public', 'img')),
-        path.relative(path.resolve(cwd, '..', '..'), path.join(cwd, 'public', 'fonts')),
-      ],
+      basePath: cwd,
+      baseUrl: '/templates/blank_j3/',
+      loadPaths: ['public/img/'],
     },
 
     initial: { reset: 'inherited' },
