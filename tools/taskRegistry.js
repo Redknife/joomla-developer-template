@@ -12,8 +12,6 @@ export class TasksRegistry extends HubRegistry {
   }
 
   init(gulp) {
-    super.init(gulp);
-
     if (this.devMode) this.addDevSfxForBuildTasks();
     this.makeBuildTask(gulp);
     this.makeWatchTask(gulp);
