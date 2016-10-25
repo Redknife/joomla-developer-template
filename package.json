@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Joomla template boilerplate for rapid development",
   "author": "Rogachev Sergey <redknife183@gmail.com> (https://github.com/Redknife)",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/Redknife/joomla-developer-template.git"
