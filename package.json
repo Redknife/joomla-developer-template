@@ -12,6 +12,7 @@
     "build": "npm run build:prod",
     "build:dev": "NODE_ENV=dev gulp build",
     "build:prod": "NODE_ENV=production gulp build",
+    "build:all": "NODE_ENV=dev gulp build && NODE_ENV=production gulp build",
     "start": "npm run start:dev",
     "start:dev": "NODE_ENV=dev NODE_WATCH=true gulp",
     "start:prod": "NODE_ENV=production NODE_WATCH=true gulp",

@@ -13,6 +13,10 @@ const commands = [
   {
     cmd: 'npm run build:prod',
     description: 'build assets for production',
+  },
+  {
+    cmd: 'npm run build:all',
+    description: 'run build:dev and build:prod',
     spacerAfter: true,
   },
   {
