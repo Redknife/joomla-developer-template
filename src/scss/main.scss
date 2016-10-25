@@ -5,6 +5,8 @@
   'utilities/mixins',
   'utilities/placeholders';
 
+@import 'base/reset';
+
 @import
   'vendors/bootstrap',
   'vendors/mfp',
@@ -12,7 +14,6 @@
   'vendors/slick';
 
 @import
-  'base/reset',
   'base/global',
   'base/animations',
   'base/base',
