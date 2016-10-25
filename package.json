@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git://github.com/Redknife/joomla-developer-template.git"
   },
+  "engines": {
+    "node": ">= 5.0.0"
+  },
   "scripts": {
     "build": "npm run build:prod",
     "build:dev": "NODE_ENV=dev gulp build",
