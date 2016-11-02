@@ -37,7 +37,6 @@ Joomla! Шаблон для быстрой разработки с 0.
 
 | Команда | Описание |
 | --- | --- |
-|  |  |
 | ```npm run build``` | Сборка, сжатие, оптимизация всей статики |
 | ```npm run build:dev``` | Сборка всей статики без сжатия (+sourcemaps) |
 | ```npm run build:all``` | Запуск ```npm run build:dev``` и ```npm run build:prod``` |
