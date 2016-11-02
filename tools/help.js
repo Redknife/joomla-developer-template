@@ -4,32 +4,24 @@ const border = chalk.green.underline(' '.repeat(70));
 const commands = [
   {
     cmd: 'npm run build',
-    description: `alias for ${chalk.bold('npm run build:prod')}`,
+    description: 'build assets for production',
   },
   {
     cmd: 'npm run build:dev',
     description: 'build assets without optimizations and compressing',
   },
   {
-    cmd: 'npm run build:prod',
-    description: 'build assets for production',
-  },
-  {
     cmd: 'npm run build:all',
-    description: 'run build:dev and build:prod',
+    description: 'run build:dev and build',
     spacerAfter: true,
   },
   {
     cmd: 'npm start',
-    description: `alias form ${chalk.bold('npm run start:dev')}`,
-  },
-  {
-    cmd: 'npm run start:dev',
-    description: 'npm run build:dev with watchers',
+    description: `${chalk.bold('npm run build:dev')} with watchers and livereload`,
   },
   {
     cmd: 'npm run start:prod',
-    description: 'npm run build:prod with watchers',
+    description: `${chalk.bold('npm run build')} with watchers and livereload`,
     spacerAfter: true,
   },
   {
