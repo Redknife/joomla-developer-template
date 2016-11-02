@@ -1,35 +1,26 @@
 import $ from 'jquery';
-import 'jquery.scrollto';
 
-
-export default (selector) => {
+export default (selector = '.js-scrollto') => {
   $(selector).each((i, el) => {
     const $el = $(el);
+    const targetSel = $el.attr('href') || $el.data('target');
+    const $target = $(targetSel);
+    if (!$target.length) return;
 
-    if (!!$el.attr('href') || !!$el.data('target')) {
-      const target = $el.attr('href') || $el.data('target');
-      const speed = $el.data('speed') || 500;
+    const offset = $el.data('offset');
+    const duration = $el.data('duration') || 500;
+    const easing = $el.data('easing') || 'easeInOutQuad';
+    const containerSel = $el.data('container');
+    const container = containerSel ? $(containerSel) : undefined;
 
-      let $target;
-
-      if (target.startsWith('#') || target.startsWith('.')) {
-        $target = $(target);
-      } else {
-        $target = $(`[data-scroll="${target}"]`);
-      }
-
-      $el.on('click', (e) => {
-        e.preventDefault();
-
-        $(window).scrollTo($target, speed, {
-          axis: 'y',
-          interrupt: true,
-          offset: {
-            top: $el.data('offsetTop') || 0,
-            left: 0,
-          },
-        });
+    $el.on('click', (e) => {
+      e.preventDefault();
+      $target.velocity('scroll', {
+        container,
+        offset,
+        duration,
+        easing,
       });
-    }
+    });
   });
 };
