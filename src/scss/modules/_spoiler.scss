@@ -1,0 +1,37 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+** Markup
+**
+<div class="m-spoiler js-spoiler">
+  <div class="m-spoiler_title js-spoiler_toggle">Title</div>
+  <div class="m-spoiler_box js-spoiler_box -collapsed">
+    <div class="m-spoiler_box_content">
+      ...
+    </div>
+  </div>
+  <div class="m-spoiler_control js-spoiler_control" data-open-text="Open" data-close-text="Close">Open</div>
+</div>
+*/
+
+.m-spoiler {
+}
+
+.m-spoiler--closed {
+  .m-spoiler_box {
+    display: none;
+  }
+}
+
+.m-spoiler_title {
+  cursor: pointer;
+}
+
+.m-spoiler_control {
+  cursor: pointer;
+}
+
+.m-spoiler_box {
+}
+
+.m-spoiler_box_content {
+  overflow: hidden;
+}
