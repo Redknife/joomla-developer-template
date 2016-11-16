@@ -7,3 +7,5 @@ node_modules/
 bower_components/
 public/*
 !public/*/index.html
+asset-manifest.json
+!yarn.lock
