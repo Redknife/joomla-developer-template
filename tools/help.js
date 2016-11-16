@@ -11,7 +11,7 @@ const commands = [
     description: 'build assets without optimizations and compressing',
   },
   {
-    cmd: 'npm run build:all',
+    cmd: 'npm run build:both',
     description: 'run build:dev and build',
     spacerAfter: true,
   },
@@ -31,6 +31,19 @@ const commands = [
   {
     cmd: 'npm run favicons',
     description: 'generate favicons',
+    spacerAfter: true,
+  },
+  {
+    cmd: 'npm run lint',
+    description: 'run lint:js and lint:css',
+  },
+  {
+    cmd: 'npm run lint:js',
+    description: 'linting javascript source code',
+  },
+  {
+    cmd: 'npm run lint:css',
+    description: 'linting styles source code',
   },
 ];
 

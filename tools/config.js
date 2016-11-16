@@ -11,12 +11,6 @@ export const basePaths = {
 };
 configuration.basePaths = basePaths;
 
-// Clean task
-export const clean = {
-  src: ['public/**/!(favicons|fonts|img|index.html)'],
-};
-configuration.clean = clean;
-
 // Js task
 export const js = {
   watch: path.join(basePaths.src, '/js/**/*.js'),
@@ -156,5 +150,38 @@ export const favicons = {
   },
 };
 configuration.favicons = favicons;
+
+// Assets manifest
+export const rev = {
+  src: path.join(basePaths.dest, '*.min.{css,js}'),
+  dest: path.join(basePaths.dest),
+  watch: path.join(basePaths.dest, '*.min.{css,js}'),
+  hashConfig: {
+    manifest: 'asset-manifest.json',
+    path: cwd,
+    template: '<%= name %>-<%= hash %>.rev.<%= ext %>',
+  },
+};
+configuration.rev = rev;
+
+// Clean task
+export const clean = {
+  src: [
+    path.join(basePaths.dest, '**/!(favicons|fonts|img|index.html)'),
+    path.join(cwd, rev.hashConfig.manifest),
+  ],
+};
+configuration.clean = clean;
+
+// Define build and watch tasks
+export const buildTasks = ['iconfont', 'images', 'js', 'styles'];
+configuration.buildTasks = buildTasks;
+
+export const devTaskSfx = ':dev';
+configuration.devTaskSfx = devTaskSfx;
+
+export const watchTaskSfx = ':watch';
+configuration.watchTaskSfx = watchTaskSfx;
+
 
 export default configuration;

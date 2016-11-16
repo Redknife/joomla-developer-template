@@ -13,3 +13,10 @@ export default function images() {
 }
 
 gulp.task('images', images);
+
+export function imagesWatch() {
+  gulp.watch(config.watch, images);
+}
+
+gulp.task('images:watch', imagesWatch);
+

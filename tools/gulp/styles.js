@@ -56,7 +56,16 @@ export function stylesDev() {
     .pipe(afterCompleteTaskCb());
 }
 
-
 gulp.task('styles', styles);
 gulp.task('styles:dev', stylesDev);
 
+export function stylesWatch() {
+  gulp.watch(config.watch, styles);
+}
+
+export function stylesDevWatch() {
+  gulp.watch(config.watch, stylesDev);
+}
+
+gulp.task('styles:watch', stylesWatch);
+gulp.task('styles:dev:watch', stylesDevWatch);

@@ -14,3 +14,8 @@ export default function genIconfont() {
 
 gulp.task('iconfont', genIconfont);
 
+export function genIconfontWatch() {
+  gulp.watch(config.watch, genIconfont);
+}
+
+gulp.task('iconfont:watch', genIconfontWatch);
