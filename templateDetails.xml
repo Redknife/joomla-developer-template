@@ -1,157 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
 <extension version="3.4" type="template" client="site">
-  <name>blank_j3</name>
-  <creationDate>2012-10-03</creationDate>
-  <author>Saity74</author>
-  <authorEmail>info@saity74.ru</authorEmail>
-  <authorUrl>http://saity74.ru</authorUrl>
-  <copyright>Saity74 LLC.</copyright>
-  <license>GNU/GPL 2 or Later</license>
-  <version>2.0.0</version>
-  <description>TMPL_JOOMLA3_DESC</description>
-  <files>
-    <filename>error.php</filename>
-    <filename>gulpfile.babel.js</filename>
-    <filename>index.html</filename>
-    <filename>index.php</filename>
-    <filename>modernizrrc.json</filename>
-    <filename>package.json</filename>
-    <filename>raw.php</filename>
-    <filename>send.php</filename>
-    <filename>templateDetails.xml</filename>
-    <folder>_php</folder>
-    <folder>html</folder>
-    <folder>language</folder>
-    <folder>public</folder>
-    <folder>src</folder>
-    <folder>tools</folder>
-  </files>
-  <positions>
-    <position>header</position>
-    <position>user1</position>
-    <position>user2</position>
-    <position>user3</position>
-    <position>content_header</position>
-    <position>content_footer</position>
-    <position>bottom</position>
-    <position>footer</position>
-  </positions>
-  <languages folder="language">
-    <language tag="ru-RU">ru-RU/ru-RU.tpl_blank_j3.ini</language>
-    <language tag="ru-RU">ru-RU/ru-RU.tpl_blank_j3.sys.ini</language>
-    <language tag="en-GB">en-GB/en-GB.tpl_blank_j3.ini</language>
-    <language tag="en-GB">en-GB/en-GB.tpl_blank_j3.sys.ini</language>
-  </languages>
-  <config>
-    <fields name="params">
-     <fieldset name="optimise">
-         <field name="min_assets"
-                type="radio"
-                class="btn-group btn-group-yesno"
-                default="1"
-                label="TPL_BLANK_J3_MIN_ASSETS_LABEL">
-             <option value="1">JYES</option>
-             <option value="0">JNO</option>
-         </field>
+    <name>blank_j3</name>
+    <creationDate>2012-10-03</creationDate>
+    <author>Saity74</author>
+    <authorEmail>info@saity74.ru</authorEmail>
+    <authorUrl>http://saity74.ru</authorUrl>
+    <copyright>Saity74 LLC.</copyright>
+    <license>GNU/GPL 2 or Later</license>
+    <version>2.0.0</version>
+    <description>TMPL_JOOMLA3_DESC</description>
+    <files>
+        <filename>error.php</filename>
+        <filename>gulpfile.babel.js</filename>
+        <filename>index.html</filename>
+        <filename>index.php</filename>
+        <filename>modernizrrc.json</filename>
+        <filename>package.json</filename>
+        <filename>raw.php</filename>
+        <filename>send.php</filename>
+        <filename>templateDetails.xml</filename>
+        <folder>_php</folder>
+        <folder>html</folder>
+        <folder>language</folder>
+        <folder>public</folder>
+        <folder>src</folder>
+        <folder>tools</folder>
+    </files>
+    <positions>
+        <position>header</position>
+        <position>user1</position>
+        <position>user2</position>
+        <position>user3</position>
+        <position>content_header</position>
+        <position>content_footer</position>
+        <position>bottom</position>
+        <position>footer</position>
+    </positions>
+    <languages folder="language">
+        <language tag="ru-RU">ru-RU/ru-RU.tpl_blank_j3.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.tpl_blank_j3.sys.ini</language>
+        <language tag="en-GB">en-GB/en-GB.tpl_blank_j3.ini</language>
+        <language tag="en-GB">en-GB/en-GB.tpl_blank_j3.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="optimise">
+                <field name="min_assets"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="1"
+                       label="TPL_BLANK_J3_MIN_ASSETS_LABEL">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
 
-      <field name="disable_scripts"
-       type="radio"
-       class="btn-group btn-group-yesno"
-       default="1"
-       label="TPL_BLANK_J3_DISABLE_SCRIPTS_LABEL"
-       description="TPL_BLANK_J3_DISABLE_SCRIPTS_DESC" >
-       <option value="1">JYES</option>
-       <option value="0">JNO</option>
-     </field>
+                <field name="disable_scripts"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="1"
+                       label="TPL_BLANK_J3_DISABLE_SCRIPTS_LABEL"
+                       description="TPL_BLANK_J3_DISABLE_SCRIPTS_DESC" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
 
-     <field name="disable_inline_scripts"
-      type="radio"
-      class="btn-group btn-group-yesno"
-      default="1"
-      label="TPL_BLANK_J3_DISABLE_INLINESCRIPTS_LABEL" >
-      <option value="1">JYES</option>
-      <option value="0">JNO</option>
-    </field>
+                <field name="disable_inline_scripts"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="1"
+                       label="TPL_BLANK_J3_DISABLE_INLINESCRIPTS_LABEL" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
 
-    <field name="disabled_scripts_list"
-     type="textarea"
-     class="span4"
-     rows="5"
-     default="/media/system/js/caption.js
-/media/jui/js/bootstrap.min.js
-/media/jui/js/jquery.min.js
-/media/jui/js/jquery-noconflict.js
-/media/jui/js/jquery-migrate.min.js
-/media/jui/js/chosen.jquery.min.js"
-     label="TPL_BLANK_J3_DISABLED_SCRIPTS_LIST_LABEL"
-     description="TPL_BLANK_J3_DISABLED_SCRIPTS_LIST_DESC"
-     />
-   </fieldset>
+                <field name="disabled_scripts_list"
+                       type="repeatable"
+                       icon="list"
+                       default='{"file":["/media/system/js/caption.js","/media/jui/js/jquery.min.js","/media/jui/js/jquery-noconflict.js","/media/jui/js/jquery-migrate.min.js","/media/jui/js/chosen.jquery.min.js"]}'
+                       label="TPL_BLANK_J3_DISABLED_SCRIPTS_LIST_LABEL"
+                       description="TPL_BLANK_J3_DISABLED_SCRIPTS_LIST_DESC"
+                >
+                    <fieldset hidden="true" name="disabled_scripts_modal" repeat="true">
+                        <field name="file"
+                               label="TPL_BLANK_J3_DISABLE_SCRIPT_LABEL"
+                               description="TPL_BLANK_J3_DISABLE_SCRIPT_DESC"
+                               type="text"
+                        />
+                    </fieldset>
+                </field>
+            </fieldset>
 
-   <fieldset name="counters">
+            <fieldset name="counters">
 
-    <field type="spacer" name="yandexspacer" label="----- Yandex.Metrika -----" />
+                <field type="spacer" name="yandexspacer" label="----- Yandex.Metrika -----" />
 
-    <field name="yandex_metrika_id" class="" type="text"
-     label="TPL_BLANK_J3_YAM_ID_LABEL" />
+                <field name="yandex_metrika_id" class="" type="text"
+                       label="TPL_BLANK_J3_YAM_ID_LABEL" />
 
-     <field name="yandex_metrika_webvisor"
-       type="radio"
-       class="btn-group btn-group-yesno"
-       default="1"
-       label="TPL_BLANK_J3_YAM_VEBVISOR_LABEL" >
-       <option value="1">JYES</option>
-       <option value="0">JNO</option>
-     </field>
+                <field name="yandex_metrika_webvisor"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="1"
+                       label="TPL_BLANK_J3_YAM_VEBVISOR_LABEL" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
 
-     <field name="yandex_metrika_clickmap"
-       type="radio"
-       class="btn-group btn-group-yesno"
-       default="1"
-       label="TPL_BLANK_J3_YAM_CLICKMAP_LABEL" >
-       <option value="1">JYES</option>
-       <option value="0">JNO</option>
-     </field>
+                <field name="yandex_metrika_clickmap"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="1"
+                       label="TPL_BLANK_J3_YAM_CLICKMAP_LABEL" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
 
-     <field name="yandex_metrika_tracklinks"
-       type="radio"
-       class="btn-group btn-group-yesno"
-       default="1"
-       label="TPL_BLANK_J3_YAM_TRACKLINKS_LABEL" >
-       <option value="1">JYES</option>
-       <option value="0">JNO</option>
-     </field>
+                <field name="yandex_metrika_tracklinks"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="1"
+                       label="TPL_BLANK_J3_YAM_TRACKLINKS_LABEL" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
 
-     <field name="yandex_metrika_accuratetrack"
-       type="radio"
-       class="btn-group btn-group-yesno"
-       default="1"
-       label="TPL_BLANK_J3_YAM_ACCURATETRACK_LABEL" >
-       <option value="1">JYES</option>
-       <option value="0">JNO</option>
-     </field>
+                <field name="yandex_metrika_accuratetrack"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="1"
+                       label="TPL_BLANK_J3_YAM_ACCURATETRACK_LABEL" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
 
-     <field name="yandex_metrika_noindex"
-       type="radio"
-       class="btn-group btn-group-yesno"
-       default="0"
-       label="TPL_BLANK_J3_YAM_NOINDEX_LABEL" >
-       <option value="1">JYES</option>
-       <option value="0">JNO</option>
-     </field>
+                <field name="yandex_metrika_noindex"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="0"
+                       label="TPL_BLANK_J3_YAM_NOINDEX_LABEL" >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
 
-     <field type="spacer" name="myspacer1" label="----- Google Analytics -----" />
+                <field type="spacer" name="myspacer1" label="----- Google Analytics -----" />
 
-     <field name="googleanalytics_code"
-       type="textarea"
-       class="span6"
-       rows="6"
-       filter="raw"
-       label="TPL_BLANK_J3_GOOGLE_ANALYTICS_CODE_LABEL" />
+                <field name="googleanalytics_code"
+                       type="textarea"
+                       class="span6"
+                       rows="6"
+                       filter="raw"
+                       label="TPL_BLANK_J3_GOOGLE_ANALYTICS_CODE_LABEL" />
 
-     </fieldset>
-   </fields>
+            </fieldset>
+        </fields>
 
- </config>
+    </config>
 </extension>
