@@ -1,12 +1,4 @@
 <?php
-/**
- * @package     Joomla.Platform
- * @subpackage  Document
- *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- */
-
 defined('JPATH_PLATFORM') or die;
 
 /**
@@ -51,23 +43,19 @@ class JDocumentRendererFootJ3 extends JDocumentRenderer
 		// Trigger the onBeforeCompileHead event
 		$app = JFactory::getApplication();
 
-
 		// Get line endings
 		$lnEnd = $document->_getLineEnd();
 		$tab = $document->_getTab();
 		$tagEnd = ' />';
 		$buffer = '';
 
-		if ($disabled_scripts_list = $document->params->get('disabled_scripts_list', ''))
-		{
-			$disable_scripts = preg_split("#\n".'|'."\r\n#", $disabled_scripts_list);
-		}
+		$disable_scripts = json_decode($document->params->get('disabled_scripts_list', ''), true);
 
 		// Generate script file links
 		foreach ($document->_scripts as $strSrc => $strAttr)
 		{
 
-			if (!in_array($strSrc, $disable_scripts))
+			if (!in_array($strSrc, $disable_scripts['file']))
 			{
 
 				$buffer .= $tab . '<script src="' . $strSrc . '"';
